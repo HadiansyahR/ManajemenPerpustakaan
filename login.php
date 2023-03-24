@@ -91,7 +91,7 @@ if (isset($_POST['login_btn'])) {
                         <button type="submit" class="btn btn-primary id=" login-btn" name="login_btn">Login</button>
                         <br><br>
                         <p style="display: inline;">Belum Punya Akun ? </p>
-                        <a href="register.html">Register</a>
+                        <a class href="register.html">Register</a>
                     </span>
                 </div>
             </form>

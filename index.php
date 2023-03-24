@@ -50,7 +50,7 @@ if (isset($_GET['logout'])) {
         <br><br>
         <div class="search">
             <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan keyword">
+                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
                 <button type="submit" class="btn btn-success" name="cari">Cari</button>
             </form>
         </div>
