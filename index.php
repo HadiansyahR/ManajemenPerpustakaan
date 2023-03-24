@@ -48,14 +48,12 @@ if (isset($_GET['logout'])) {
 <body>
     <div class="container" id="block">
         <br><br>
-        <!-- <div class="search"> -->
-        <form class="search ml-200 " action="" method="post">
-            <input type="text" name="keyword" placeholder="Masukan keyword">
-            <span>
+        <div class="search">
+            <form class="search ml-200 " action="" method="post">
+                <input type="text" name="keyword" placeholder="Masukan keyword">
                 <button type="submit" class="btn btn-success" name="cari">Cari</button>
-            </span>
-        </form>
-        <!-- </div> -->
+            </form>
+        </div>
         <br><br>
         <table class="table table-warning ">
             <thead>
