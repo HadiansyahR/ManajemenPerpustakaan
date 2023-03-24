@@ -64,6 +64,7 @@ if (isset($_GET['logout'])) {
                     <th scope="col">Penerbit</th>
                     <th scope="col">Tahun Terbit</th>
                     <th scope="col">Cover Buku</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,8 +77,10 @@ if (isset($_GET['logout'])) {
                         <td><?php echo $row['tahun_terbit'] ?></td>
                         <td>
                             <img src="img/<?php echo $row['cover_buku'] ?>" alt="Cover <?php echo $row['judul_buku'] ?>">
-                            <!-- <a class="text-danger" href="actionDelete.php?user_id=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku ini akan dihapus?')">Hapus</a> |
-                            <a class="text-secondary" href="Update.php?user_id=<?= $row['user_id']; ?>&user_name=<?= $row['user_name']; ?>&user_email=<?= $row['user_email']; ?>">Edit</a> -->
+                        </td>
+                        <td>
+                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku ini akan dihapus?')">Hapus</a> |
+                            <a class="text-secondary" href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>">Edit</a>
                         </td>
                     </tr>
                 <?php } ?>
