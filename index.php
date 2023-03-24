@@ -81,7 +81,7 @@ if (isset($_GET['logout'])) {
                             <img src="img/<?php echo $row['cover_buku'] ?>" alt="Cover <?php echo $row['judul_buku'] ?>">
                         </td>
                         <td>
-                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku ini akan dihapus?')">Hapus</a> |
+                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |
                             <a class="text-secondary" href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>">Edit</a>
                         </td>
                     </tr>
