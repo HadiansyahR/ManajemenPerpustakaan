@@ -71,8 +71,7 @@ if (isset($_POST['login_btn'])) {
         <div class="container">
             <form id="login-form" method="POST" action="">
                 <div>
-                    <br>
-                    <h3>Login</h3>
+                    <h3>Login <br> Member</h3>
                     <div>
                         <p>Email</p>
                         <input type="email" name="user_email">
