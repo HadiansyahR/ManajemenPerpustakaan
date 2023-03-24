@@ -55,6 +55,8 @@ if (isset($_GET['logout'])) {
             </form>
         </div>
         <br><br>
+        <a class=" btn btn-success mr-10" href="TambahBuku.html" role="button">Tambah Buku</a>
+        <br><br>
         <table class="table table-warning ">
             <thead>
                 <tr>
