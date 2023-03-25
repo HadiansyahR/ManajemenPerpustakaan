@@ -46,7 +46,7 @@ if (isset($_POST['login_btn'])) {
 
             header('location: index.php?message=Login berhasil');
         } else {
-            header('location: login.php?error=Email atau Password salah!');
+            header('location: login.php?error=Harap isi dengan benar!');
         }
     } else {
         header('location: login.php?error=Terjadi suatu kesalahan!');
@@ -88,7 +88,7 @@ if (isset($_POST['login_btn'])) {
                     }
                     ?>
                 </div>
-                <button type="submit" class="btn btn-primary">LOGIN</button>
+                <button type="submit" class="btn btn-primary" name="login_btn">LOGIN</button>
             </form>
         </div>
     </section>
