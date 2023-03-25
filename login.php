@@ -67,18 +67,19 @@ if (isset($_POST['login_btn'])) {
 
 <body>
     <section class="Left-content">
-        <h1>SELAMAT<font color="#5907EF"> DATANG</font></h1>
-        <p class="fw-bold">Silakan isi data anda untuk masuk</p>
+        <h1>SELAMAT<font color="#5907EF"> DATANG</font>
+        </h1>
+        <p class="fw-medium">Silakan isi data anda untuk masuk</p>
 
         <div class="Login-form">
             <form action="login.php" method="post">
-                <h5>Email</h5>
-                <div class="txt-field">
-                    <input type="email" name="user_email">
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <h5>Password</h5>
-                <div class="txt-field">
-                    <input type="password" name="user_password">
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="error">
                     <?php
@@ -87,51 +88,16 @@ if (isset($_POST['login_btn'])) {
                     }
                     ?>
                 </div>
-                <div>
-                    <input type="submit" value="LOGIN" id="login-btn" name="login_btn">
-                </div>
+                <button type="submit" class="btn btn-primary">LOGIN</button>
             </form>
         </div>
     </section>
 
     <section class="Right-content">
-  
         <span>
             <img src="img/iconbuku_login.png" id="book-icon" alt="">
         </span>
     </section>
-    <!--
-    <section>
-        <div class="container">
-            <form id="login-form" method="POST" action="">
-                <div>
-                    <h3>Login <br> Member</h3>
-                    <div>
-                        <p>Email</p>
-                        <input type="email" name="user_email">
-                    </div>
-                    <div>
-                        <p>Password</p>
-                        <input type="password" name="user_password">
-                    </div>
-                  <?php if (isset($_GET['error'])) ?>
-                    <div class="text-danger" role="alert">
-                        <?php if (isset($_GET['error'])) {
-                            echo $_GET['error'];
-                        } ?>
-                    </div>
-                    <br>
-                    <span>
-                        <button type="submit" class="btn btn-primary id=" login-btn" name="login_btn">Login</button>
-                        <br><br>
-                        <p style="display: inline;">Belum Punya Akun ? </p>
-                        <a class href="register.html">Register</a>
-                    </span>
-                </div>
-            </form>
-        </div>
-    </section>
-    -->
 </body>
 
 </html>
