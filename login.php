@@ -60,12 +60,47 @@ if (isset($_POST['login_btn'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon/home.png" type="image/png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/Login.css">
     <title>Login</title>
 </head>
 
 <body>
+    <section class="Left-content">
+        <h1>SELAMAT<font color="#5907EF"> DATANG</font></h1>
+        <p class="fw-bold">Silakan isi data anda untuk masuk</p>
+
+        <div class="Login-form">
+            <form action="login.php" method="post">
+                <h5>Email</h5>
+                <div class="txt-field">
+                    <input type="email" name="user_email">
+                </div>
+                <h5>Password</h5>
+                <div class="txt-field">
+                    <input type="password" name="user_password">
+                </div>
+                <div class="error">
+                    <?php
+                    if (isset($_GET['error'])) {
+                        echo $_GET['error'];
+                    }
+                    ?>
+                </div>
+                <div>
+                    <input type="submit" value="LOGIN" id="login-btn" name="login_btn">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="Right-content">
+  
+        <span>
+            <img src="img/iconbuku_login.png" id="book-icon" alt="">
+        </span>
+    </section>
+    <!--
     <section>
         <div class="container">
             <form id="login-form" method="POST" action="">
@@ -79,7 +114,7 @@ if (isset($_POST['login_btn'])) {
                         <p>Password</p>
                         <input type="password" name="user_password">
                     </div>
-                    <?php if (isset($_GET['error'])) ?>
+                  <?php if (isset($_GET['error'])) ?>
                     <div class="text-danger" role="alert">
                         <?php if (isset($_GET['error'])) {
                             echo $_GET['error'];
@@ -96,6 +131,7 @@ if (isset($_POST['login_btn'])) {
             </form>
         </div>
     </section>
+    -->
 </body>
 
 </html>
