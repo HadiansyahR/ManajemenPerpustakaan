@@ -1,3 +1,3 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "akademik1")
+$conn = mysqli_connect("localhost", "root", "", "perpustakaan")
     or die("Can't conect to the database");
