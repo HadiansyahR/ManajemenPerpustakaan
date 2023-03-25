@@ -75,12 +75,13 @@ if (isset($_POST['login_btn'])) {
             <form action="login.php" method="post">
                 <div class="mb-3">
                     <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="user_password">
                 </div>
+                <?php if (isset($_GET['error'])) ?>
                 <div class="error">
                     <?php
                     if (isset($_GET['error'])) {
@@ -88,7 +89,7 @@ if (isset($_POST['login_btn'])) {
                     }
                     ?>
                 </div>
-                <button type="submit" class="btn btn-primary" name="login_btn">LOGIN</button>
+                <button type="submit" class="btn btn-primary" id ="login-btn" name="login_btn">LOGIN</button>
             </form>
         </div>
     </section>
