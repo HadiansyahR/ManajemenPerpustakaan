@@ -30,6 +30,10 @@ if (isset($_GET['logout'])) {
         exit;
     }
 }
+
+$name = $row['judul_buku'];
+$photo_name = str_replace(' ', '_', $name) . ".jpg";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +82,7 @@ if (isset($_GET['logout'])) {
                         <td><?php echo $row['penerbit_buku'] ?></td>
                         <td><?php echo $row['tahun_terbit'] ?></td>
                         <td>
-                            <img src="img/<?php echo $row['cover_buku'] ?>" alt="Cover <?php echo $row['judul_buku'] ?>">
+                            <img width="100" src="img/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
                         </td>
                         <td>
                             <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |

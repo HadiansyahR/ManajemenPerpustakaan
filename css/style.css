@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #5907ef;  
   }
   
-  .container,section,body {
-    background-color: #5907ef;    
+  /* .container,section,body {
 
-  }
+  } */
   
   #block{
     display: block;
