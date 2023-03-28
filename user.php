@@ -50,8 +50,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
 </head>
 
 <body>
-    <br>
-    <a class="btn btn-success profil" href="dataProfil.php" role="button">Profil</a>
+    <a class="btn btn-success profil" href="profil.php" role="button">Profil</a>
     <div class="container" id="block">
         <br><br>
         <div class="search">
@@ -60,8 +59,6 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
                 <button type="submit" class="btn btn-success" name="cari">Cari</button>
             </form>
         </div>
-        <br><br>
-        <a class=" btn btn-success mr-10" href="TambahBuku.html" role="button">Tambah Buku</a>
         <br><br>
         <table class="table table-warning ">
             <thead>
@@ -72,7 +69,6 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
                     <th scope="col">Penerbit</th>
                     <th scope="col">Tahun Terbit</th>
                     <th scope="col">Cover Buku</th>
-                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,16 +82,11 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
                         <td>
                             <img width="100" src="img/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
                         </td>
-                        <td>
-                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |
-                            <a class="text-secondary" href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>">Edit</a>
-                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
         <br>
-
         <div id="center">
             <a class="btn btn-danger" href="index.php?logout=3" role="button">Log out</a>
         </div>

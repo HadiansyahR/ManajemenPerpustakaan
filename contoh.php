@@ -102,6 +102,3 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
         <br>
         <br>
     </div>
-</body>
-
-</html>
