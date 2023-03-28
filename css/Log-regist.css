@@ -6,6 +6,9 @@ body {
     
 
 }
+a{
+    text-decoration: none;
+}
 
 h1 {
     color: #343434;
@@ -64,7 +67,7 @@ p{
     margin-left: 10%;
 }
 
-/* REGISTER */
+REGISTER
 {
     color: #343434;
     letter-spacing: 2px;
