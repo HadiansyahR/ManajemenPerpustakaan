@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Log-regist.css">
 </head>
 
 <!-- $username = $_POST['user_name'];
@@ -17,44 +17,35 @@ $kelamin = $_POST['jenis_kelamin'];
 $alamat = $_POST['user_address']; -->
 
 <body>
-    <div class="container">
-        <form method="post" action="action.php">
-            <h3>REGISTER MEMBER</h3>
-            <div class="input">
-                <p>Username :</p>
-                <input type="text" name="user_name">
-                <i class="bx bx-user"></i>
-            </div>
-            <!-- <p>Alamat :</p>
-            <div class="input">
-                <input type="text" name="user_adress">
-                <i class="bx bx-envelope"></i>
-            </div>
-            <p>Jenis Kelamin :</p>
-            <div class="input">
-                <input type="text" name="jenis_kelamin">
-                <i class="bx bx-envelope"></i>
-            </div> -->
-            <p>Email :</p>
-            <div class="input">
-                <input type="email" name="user_email">
-                <i class="bx bx-envelope"></i>
-            </div>
-            <p>Password :</p>
-            <div class="input">
-                <input type="password" name="user_password">
-                <i class="bx bx-key"></i>
-            </div>
-            <br>
-            <span>
-                <button type="submit" class="btn btn-success">Register</button>
-                <br>
-                <br>
-                <p style="display: inline;">Punya Akun ? </p>
-                <a href="login.php" role="button">Login</a>
-            </span>
-        </form>
-    </div>
+    <section class="Left-content2">
+        <h1 id="2h">SELAMAT<font color="#5907EF"> DATANG</font>
+        </h1>
+        <p class="fw-medium" id="2p">Silakan isi data anda untuk pendaftaran</p>
+
+        <div class="Login-form2">
+            <form action="login.php" method="post">
+                <div class="mb-3">
+                    <label class="form-label">User Name</label>
+                    <input type="username" class="form-control"  name="user_name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="user_password">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control"  name="user_password">
+                </div>
+                <button type="submit" class="btn btn-primary2"  name="login_btn">Regist</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="Right-content2">
+        <span>
+            <img  src="img/iconbuku_login.png" id="book-icon2" alt="">
+        </span>
+    </section>
 
 </body>
 
