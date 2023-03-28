@@ -2,7 +2,7 @@
 session_start();
 include('server/connection.php');
 
-$sql = "Select * from buku";
+$sql = "Select * from akun";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -10,9 +10,9 @@ if (mysqli_num_rows($result) > 0) {
 
 if (isset($_POST['cari'])) {
     $keyword = $_POST['keyword'];
-    $q = "Select * from buku where judul_buku LIKE '%$keyword%'";
+    $q = "Select * from akun WHERE email LIKE '%$keyword%' || name LIKE '%$keyword%' ";
 } else {
-    $q = 'Select * from buku';
+    $q = 'Select * from akun';
 }
 
 $result = mysqli_query($conn, $q);
@@ -21,7 +21,6 @@ if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');
     exit;
 }
-
 if (isset($_GET['logout'])) {
     if (isset($_SESSION['logged_in'])) {
         unset($_SESSION['logged_in']);
@@ -31,7 +30,7 @@ if (isset($_GET['logout'])) {
     }
 }
 
-$name = $row['judul_buku'];
+$name = $row['name'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
 
 ?>
@@ -64,28 +63,25 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Judul Buku</th>
-                    <th scope="col">Penulis</th>
-                    <th scope="col">Penerbit</th>
-                    <th scope="col">Tahun Terbit</th>
-                    <th scope="col">Cover Buku</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Photo Profil</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?php echo $row['id_buku'] ?></td>
-                        <td><?php echo $row['judul_buku'] ?></td>
-                        <td><?php echo $row['penulis_buku'] ?></td>
-                        <td><?php echo $row['penerbit_buku'] ?></td>
-                        <td><?php echo $row['tahun_terbit'] ?></td>
+                        <td><?php echo $row['id'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['name'] ?></td>
+                        <td><?php echo $row['status'] ?></td>
                         <td>
-                            <img width="100" src="img/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
+                            <img width="100" src="img/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
                         </td>
                         <td>
-                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |
-                            <a class="text-secondary" href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>">Edit</a>
+                            <a class="text-danger" href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')">Hapus</a>
                         </td>
                     </tr>
                 <?php } ?>
