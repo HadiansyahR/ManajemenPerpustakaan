@@ -5,12 +5,8 @@ if (isset($_SESSION['logged_in'])) {
     header('location: index.php');
     exit;
 }
-$_SESSION['link'] = '';
-if ($_SESSION['user_status'] == 'Admin') {
-    $_SESSION['link'] = 'index';
-} else if ($_SESSION['user_status'] == 'User') {
-    $_SESSION['link'] = 'user';
-}
+// unset($_SESSION['user_status']);
+
 if (isset($_POST['login_btn'])) {
 
     $email = $_POST['user_email'];
@@ -46,6 +42,11 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_photo'] = $user_photo;
             $_SESSION['logged_in'] = true;
 
+            if ($_SESSION['user_status'] == 'Admin') {
+                $_SESSION['link'] = 'index';
+            } else if ($_SESSION['user_status'] == 'User') {
+                $_SESSION['link'] = 'user';
+            }
             header("location: " . $_SESSION['link'] . ".php?message=Login berhasil sebagai " . $_SESSION['user_status']);
         } else {
             header('location: login.php?error=Harap isi dengan benar!');
