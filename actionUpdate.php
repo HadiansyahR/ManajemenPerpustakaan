@@ -4,10 +4,9 @@ include "server/connection.php";
 $id = $_GET['user_id'];
 $email = $_POST['user_email'];
 $name = $_POST['user_name'];
-$kelamin = $_POST['jenis_kelamin'];
-$alamat = $_POST['user_address'];
+$photo = str_replace(' ', '_', $name) . ".jpg";
 
-$query = "UPDATE member SET user_email = '$email', user_name = '$name', jenis_kelamin = '$kelamin', user_address = '$alamat' WHERE user_id = '$id'";
+$query = "UPDATE akun SET email = '$email', name = '$name', photo = '$photo' WHERE user_id = '$id'";
 mysqli_query($conn, $query);
 header("location:index.php");
 die();
