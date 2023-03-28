@@ -10,8 +10,8 @@ if (isset($_POST['login_btn'])) {
     $email = $_POST['user_email'];
     $password = ($_POST['user_password']);
 
-    $query = "SELECT * FROM member
-    WHERE user_email = ? AND user_password = ? LIMIT 1";
+    $query = "SELECT * FROM akun
+    WHERE email = ? AND password = ? LIMIT 1";
 
     $stmt_login = $conn->prepare($query);
     $stmt_login->bind_param('ss', $email, $password);
@@ -38,9 +38,6 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_name'] = $user_name;
             $_SESSION['user_email'] = $user_email;
-            $_SESSION['user_phone'] = $user_phone;
-            $_SESSION['user_address'] = $user_address;
-            $_SESSION['user_city'] = $user_city;
             $_SESSION['user_photo'] = $user_photo;
             $_SESSION['logged_in'] = true;
 
@@ -89,7 +86,7 @@ if (isset($_POST['login_btn'])) {
                     }
                     ?>
                 </div>
-                <button type="submit" class="btn btn-primary" id ="login-btn" name="login_btn">LOGIN</button>
+                <button type="submit" class="btn btn-primary" id="login-btn" name="login_btn">LOGIN</button>
             </form>
         </div>
     </section>
