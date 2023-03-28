@@ -5,6 +5,12 @@ if (isset($_SESSION['logged_in'])) {
     header('location: index.php');
     exit;
 }
+$_SESSION['link'] = '';
+if ($_SESSION['user_status'] == 'Admin') {
+    $_SESSION['link'] = 'index';
+} else if ($_SESSION['user_status'] == 'User') {
+    $_SESSION['link'] = 'user';
+}
 if (isset($_POST['login_btn'])) {
 
     $email = $_POST['user_email'];
@@ -21,12 +27,10 @@ if (isset($_POST['login_btn'])) {
 
         $stmt_login->bind_result(
             $user_id,
-            $user_name,
             $user_email,
+            $user_name,
             $user_password,
-            $user_phone,
-            $user_address,
-            $user_city,
+            $user_status,
             $user_photo
         );
         $stmt_login->store_result();
@@ -38,10 +42,11 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_name'] = $user_name;
             $_SESSION['user_email'] = $user_email;
+            $_SESSION['user_status'] = $user_status;
             $_SESSION['user_photo'] = $user_photo;
             $_SESSION['logged_in'] = true;
 
-            header('location: index.php?message=Login berhasil');
+            header("location: " . $_SESSION['link'] . ".php?message=Login berhasil sebagai " . $_SESSION['user_status']);
         } else {
             header('location: login.php?error=Harap isi dengan benar!');
         }
@@ -69,9 +74,9 @@ if (isset($_POST['login_btn'])) {
         <p class="fw-medium">Silakan isi data anda untuk masuk</p>
 
         <div class="Login-form">
-            <form action="login.php" method="post">
+            <form action="" method="post">
                 <div class="mb-3">
-                    <label class="form-label">Email address</label>
+                    <label class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
                 </div>
                 <div class="mb-3">
@@ -87,6 +92,9 @@ if (isset($_POST['login_btn'])) {
                     ?>
                 </div>
                 <button type="submit" class="btn btn-primary" id="login-btn" name="login_btn">LOGIN</button>
+                <br>
+                <p style="display: inline;">Belum Punya Akun ? </p>
+                <a class href="register.html">Register</a>
             </form>
         </div>
     </section>
