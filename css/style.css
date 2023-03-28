@@ -8,7 +8,11 @@
   .container,section,body {
     background-color: #5907ef;  
   }
-  
+  .profil{
+    margin-left: 50px;
+    margin-top: 20px;
+  }
+
   #block{
     display: block;
   }
@@ -19,7 +23,7 @@
     height: 100vh;
   }
   
-  form {
+  .form,form {
     width: 350px;
     background-color: #ffffff;
     border-radius: 10px;

@@ -50,6 +50,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
 </head>
 
 <body>
+    <a class="btn btn-success profil" href="profil.php" role="button">Profil</a>
     <div class="container" id="block">
         <br><br>
         <div class="search">
