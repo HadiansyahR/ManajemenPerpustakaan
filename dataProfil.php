@@ -7,15 +7,20 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
 }
-
-$keyword2 = $_POST['keyword'];
-if (isset($_POST['cari']) && strlen($keyword) > 0) {
-    $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
+if (isset($_POST['cari'])) {
+    $keyword = $_POST['keyword'];
+    if (strlen($keyword) > 0) {
+        $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
+    } else {
+        $q = "Select * from akun WHERE status = 'User'";
+    }
 } else {
     $q = "Select * from akun WHERE status = 'User'";
 }
-
 $result = mysqli_query($conn, $q);
+
+
+
 
 if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');

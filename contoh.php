@@ -39,7 +39,6 @@ include('layouts/header.php');
 ?>
 
 <br>
-<a class="btn btn-success profil" href="dataProfil.php" role="button">Profil</a>
 <div class="container" id="block">
     <br><br>
     <div class="search">
@@ -49,7 +48,7 @@ include('layouts/header.php');
         </form>
     </div>
     <br><br>
-    <a class=" btn btn-success mr-10" href="TambahBuku.html" role="button">Tambah Buku</a>
+    <a class=" btn btn-success" href="TambahBuku.html" role="button">Tambah Buku</a>
     <br><br>
     <table class="table table-warning ">
         <thead>
