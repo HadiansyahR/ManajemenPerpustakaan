@@ -17,14 +17,13 @@ include('layouts/header.php');
 <div class="container form" id="block">
     <h3>PROFIL</h3>
     <br>
+    <img class="rounded-circle img-responsive" width="200px" src="img/profil/<?php echo  $row['photo']  ?>" alt="Profil <?php echo  $row['user_name']  ?>">
+    <br><br>
     <h6>ID: <?php echo $row['id']; ?></h6>
     <h6>Nama: <?php echo $row['name']; ?></h6>
     <h6>Email: <?php echo $row['email']; ?></h6>
     <h6>Status: <?php echo $row['status']; ?></h6>
-
-    <!-- <img width="200px" src="img/<?php echo  $row['photo']  ?>" alt="Profil <?php echo  $row['user_name']  ?>"> -->
-    <img width="200px" src="img/user.jpg" alt="Profil <?php echo  $row['name']  ?>">
-    <br><br>
+    <br>
     <a class=" btn btn-success mr-10" href="updateProfil.php" role="button">Update</a>
 </div>
 <?php

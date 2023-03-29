@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="css/Log-regist.css">
 </head>
 
-<!-- $username = $_POST['user_name'];
-$email = $_POST['user_email'];
-$password = ($_POST['user_password']);
-$kelamin = $_POST['jenis_kelamin'];
-$alamat = $_POST['user_address']; -->
 
 <body>
     <section class="Left-content2">
@@ -23,7 +18,7 @@ $alamat = $_POST['user_address']; -->
         <p class="fw-medium" id="2p">Silakan isi data anda untuk pendaftaran</p>
 
         <div class="Login-form2">
-            <form action="action.php" method="post">
+            <form action="action.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">User Name</label>
                     <input type="username" class="form-control" name="user_name">
@@ -35,6 +30,12 @@ $alamat = $_POST['user_address']; -->
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control" name="user_password">
+                </div>
+                <div class="mb-3">
+                    <p>Photo</p>
+                    <div class="custom-file">
+                        <input type="file" name="photo" />
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary2" name="login_btn">Register</button>
                 <br>
