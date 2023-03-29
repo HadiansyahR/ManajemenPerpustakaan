@@ -33,7 +33,9 @@ if (isset($_GET['logout'])) {
 
 $name = $row['judul_buku'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-
+$_POST['profil'] = 'dataProfil.php';
+$_POST['buku'] = 'index.php';
+include('layouts/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +53,6 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
 
 <body>
     <br>
-    <a class="btn btn-success profil" href="dataProfil.php" role="button">Profil</a>
     <div class="container" id="block">
         <br><br>
         <div class="search">
@@ -61,7 +62,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             </form>
         </div>
         <br><br>
-        <a class=" btn btn-success mr-10" href="TambahBuku.html" role="button">Tambah Buku</a>
+        <a class=" btn btn-success mr-10" href="PageTambahBuku.php" role="button">Tambah Buku</a>
         <br><br>
         <table class="table table-warning ">
             <thead>
@@ -84,7 +85,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
                         <td><?php echo $row['penerbit_buku'] ?></td>
                         <td><?php echo $row['tahun_terbit'] ?></td>
                         <td>
-                            <img width="100" src="img/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
+                            <img width="100" src="img/cover/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
                         </td>
                         <td>
                             <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |
@@ -95,13 +96,9 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             </tbody>
         </table>
         <br>
-
-        <div id="center">
-            <a class="btn btn-danger" href="index.php?logout=3" role="button">Log out</a>
-        </div>
         <br>
         <br>
     </div>
-</body>
-
-</html>
+    <?php
+    include('layouts/footer.php');
+    ?>

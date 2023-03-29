@@ -2,20 +2,25 @@
 session_start();
 include('server/connection.php');
 
-$sql = "Select * from akun";
+$sql = "Select * from akun WHERE status = 'User'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
 }
-
 if (isset($_POST['cari'])) {
     $keyword = $_POST['keyword'];
-    $q = "Select * from akun WHERE email LIKE '%$keyword%' || name LIKE '%$keyword%' ";
+    if (strlen($keyword) > 0) {
+        $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
+    } else {
+        $q = "Select * from akun WHERE status = 'User'";
+    }
 } else {
-    $q = 'Select * from akun';
+    $q = "Select * from akun WHERE status = 'User'";
 }
-
 $result = mysqli_query($conn, $q);
+
+
+
 
 if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');
@@ -32,7 +37,9 @@ if (isset($_GET['logout'])) {
 
 $name = $row['name'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-
+$_POST['profil'] = 'dataProfil.php';
+$_POST['buku'] = 'index.php';
+include('layouts/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,20 +60,19 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
         <br><br>
         <div class="search">
             <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
+                <input type="text" name="keyword" placeholder="Masukan Nama User">
                 <button type="submit" class="btn btn-success" name="cari">Cari</button>
             </form>
         </div>
-        <br><br>
         <br><br>
         <table class="table table-warning ">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Photo Profil</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -74,12 +80,12 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
                         <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['email'] ?></td>
-                        <td><?php echo $row['name'] ?></td>
-                        <td><?php echo $row['status'] ?></td>
                         <td>
-                            <img width="100" src="img/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
+                            <img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
                         </td>
+                        <td><?php echo $row['name'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['status'] ?></td>
                         <td>
                             <a class="text-danger" href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')">Hapus</a>
                         </td>
@@ -88,13 +94,8 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             </tbody>
         </table>
         <br>
-
-        <div id="center">
-            <a class="btn btn-danger" href="index.php?logout=3" role="button">Log out</a>
-        </div>
-        <br>
         <br>
     </div>
-</body>
-
-</html>
+    <?php
+    include('layouts/footer.php');
+    ?>

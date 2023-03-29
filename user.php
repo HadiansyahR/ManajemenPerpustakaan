@@ -33,66 +33,48 @@ if (isset($_GET['logout'])) {
 
 $name = $row['judul_buku'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-
+$_POST['profil'] = 'profil.php';
+$_POST['buku'] = 'user.php';
+include('layouts/header.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon/home.png" type="image/png">
-</head>
-
-<body>
-    <a class="btn btn-success profil" href="profil.php" role="button">Profil</a>
-    <div class="container" id="block">
-        <br><br>
-        <div class="search">
-            <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
-                <button type="submit" class="btn btn-success" name="cari">Cari</button>
-            </form>
-        </div>
-        <br><br>
-        <table class="table table-warning ">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Judul Buku</th>
-                    <th scope="col">Penulis</th>
-                    <th scope="col">Penerbit</th>
-                    <th scope="col">Tahun Terbit</th>
-                    <th scope="col">Cover Buku</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                        <td><?php echo $row['id_buku'] ?></td>
-                        <td><?php echo $row['judul_buku'] ?></td>
-                        <td><?php echo $row['penulis_buku'] ?></td>
-                        <td><?php echo $row['penerbit_buku'] ?></td>
-                        <td><?php echo $row['tahun_terbit'] ?></td>
-                        <td>
-                            <img width="100" src="img/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-        <br>
-        <div id="center">
-            <a class="btn btn-danger" href="index.php?logout=3" role="button">Log out</a>
-        </div>
-        <br>
-        <br>
+<div class="container" id="block">
+    <br><br>
+    <div class="search">
+        <form class="search ml-200 " action="" method="post">
+            <input type="text" name="keyword" placeholder="Masukan Judul Buku">
+            <button type="submit" class="btn btn-success" name="cari">Cari</button>
+        </form>
     </div>
-</body>
-
-</html>
+    <br><br>
+    <table class="table table-warning ">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Judul Buku</th>
+                <th scope="col">Penulis</th>
+                <th scope="col">Penerbit</th>
+                <th scope="col">Tahun Terbit</th>
+                <th scope="col">Cover Buku</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <tr>
+                    <td><?php echo $row['id_buku'] ?></td>
+                    <td><?php echo $row['judul_buku'] ?></td>
+                    <td><?php echo $row['penulis_buku'] ?></td>
+                    <td><?php echo $row['penerbit_buku'] ?></td>
+                    <td><?php echo $row['tahun_terbit'] ?></td>
+                    <td>
+                        <img width="100" src="img/cover/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <br>
+    <br>
+</div>
+<?php
+include('layouts/footer.php');
+?>
