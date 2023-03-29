@@ -85,7 +85,7 @@ include('layouts/header.php');
                         <td><?php echo $row['name'] ?></td>
                         <td><?php echo $row['status'] ?></td>
                         <td>
-                            <img width="100" src="img/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
+                            <img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
                         </td>
                         <td>
                             <a class="text-danger" href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')">Hapus</a>

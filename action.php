@@ -7,7 +7,6 @@ $password = ($_POST['user_password']);
 
 $photo = $_FILES['photo']['tmp_name'];
 $photo_name = str_replace(' ', '_', $username) . ".jpg";
-
 move_uploaded_file($photo, "img/profil/" . $photo_name);
 
 $query = "INSERT INTO akun VALUES('','$email','$username','$password','User','$photo_name')";

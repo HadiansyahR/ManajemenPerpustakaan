@@ -4,7 +4,7 @@ $_POST['buku'] = 'index.php';
 include('layouts/header.php');
 $id = $_GET["id_buku"]; ?>
 
-<div class="container">
+<div class="container2">
     <div class="block">
         <br>
         <br>

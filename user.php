@@ -66,7 +66,7 @@ include('layouts/header.php');
                     <td><?php echo $row['penerbit_buku'] ?></td>
                     <td><?php echo $row['tahun_terbit'] ?></td>
                     <td>
-                        <img width="100" src="img/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
+                        <img width="100" src="img/cover/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
                     </td>
                 </tr>
             <?php } ?>

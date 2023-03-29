@@ -4,7 +4,7 @@ $_POST['buku'] = 'index.php';
 include('layouts/header.php');
 ?>
 <div class="container">
-    <form method="post" action="TambahBuku.php">
+    <form method="post" action="TambahBuku.php" enctype="multipart/form-data">
         <h3>TAMBAH BUKU</h3>
         <h6>Judul Buku :</h6>
         <div class="input">
@@ -25,12 +25,19 @@ include('layouts/header.php');
         <div class="input">
             <input type="text" name="tahun_terbit">
             <i class="bx bx-envelope"></i>
+        </div>
+        <h6>Cover Buku :</h6>
+        <div class="input">
+            <div class="custom-file">
+                <input type="file" name="cover" />
+            </div>
+        </div>
+        <br>
+        <span>
+            <button type="submit" class="btn btn-success">Tambah</button>
+            <a class=" btn btn-secondary mr-10" href="index.php" role="button">Kembali</a>
             <br>
-            <span>
-                <button type="submit" class="btn btn-success">Tambah</button>
-                <a class=" btn btn-secondary mr-10" href="index.php" role="button">Kembali</a>
-                <br>
-            </span>
+        </span>
     </form>
 </div>
 <?php
