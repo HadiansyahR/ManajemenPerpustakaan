@@ -8,7 +8,7 @@ if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
 }
 
-$keyword = $_POST['keyword'];
+$keyword2 = $_POST['keyword'];
 if (isset($_POST['cari']) && strlen($keyword) > 0) {
     $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
 } else {
