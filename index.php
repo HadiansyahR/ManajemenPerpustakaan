@@ -96,10 +96,6 @@ include('layouts/header.php');
             </tbody>
         </table>
         <br>
-
-        <div id="center">
-            <a class="btn btn-danger" href="index.php?logout=3" role="button">Log out</a>
-        </div>
         <br>
         <br>
     </div>

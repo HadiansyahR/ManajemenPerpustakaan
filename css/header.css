@@ -65,6 +65,10 @@
   .side{
     filter: invert(1);
   }
+  .logout{
+    display: block;
+    margin-top: 430px;
+  }
   
   .sidebar ul li a {
     display: block;

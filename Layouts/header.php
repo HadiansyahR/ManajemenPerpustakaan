@@ -17,11 +17,12 @@
     <div class="sidebar">
         <ul>
             <li>
-                <a href="<?php echo $_POST['profil']; ?> "><img class="side" width="40px" src="img/profile.png" alt="Profil.jpg"></a>
+                <a href="<?php echo $_POST['profil']; ?> "><img class="side" width="40px" src="img/profile.png" alt="Profil"></a>
             </li>
             <li>
-                <a href="<?php echo $_POST['buku']; ?>"><img class="side" width="40px" src="img/book.png" alt="Book.jpg"></a>
+                <a href="<?php echo $_POST['buku']; ?>"><img class="side" width="40px" src="img/book.png" alt="Book"></a>
             </li>
+            <a class="logout" href="index.php?logout=1"><img width="40px" src="img/exit.png" alt="Logout!"></a>
         </ul>
     </div>
     <header>
