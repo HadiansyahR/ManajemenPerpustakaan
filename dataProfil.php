@@ -2,17 +2,17 @@
 session_start();
 include('server/connection.php');
 
-$sql = "Select * from akun";
+$sql = "Select * from akun WHERE status = 'User'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
 }
 
-if (isset($_POST['cari'])) {
-    $keyword = $_POST['keyword'];
-    $q = "Select * from akun WHERE email LIKE '%$keyword%' || name LIKE '%$keyword%' ";
+$keyword = $_POST['keyword'];
+if (isset($_POST['cari']) && strlen($keyword) > 0) {
+    $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
 } else {
-    $q = 'Select * from akun';
+    $q = "Select * from akun WHERE status = 'User'";
 }
 
 $result = mysqli_query($conn, $q);
@@ -53,7 +53,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
         <br><br>
         <div class="search">
             <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
+                <input type="text" name="keyword" placeholder="Masukan Nama User">
                 <button type="submit" class="btn btn-success" name="cari">Cari</button>
             </form>
         </div>
