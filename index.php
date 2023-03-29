@@ -33,7 +33,9 @@ if (isset($_GET['logout'])) {
 
 $name = $row['judul_buku'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-
+$_POST['profil'] = 'dataProfil.php';
+$_POST['buku'] = 'index.php';
+include('layouts/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +53,6 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
 
 <body>
     <br>
-    <a class="btn btn-success profil" href="dataProfil.php" role="button">Profil</a>
     <div class="container" id="block">
         <br><br>
         <div class="search">
@@ -61,7 +62,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             </form>
         </div>
         <br><br>
-        <a class=" btn btn-success mr-10" href="TambahBuku.html" role="button">Tambah Buku</a>
+        <a class=" btn btn-success mr-10" href="PageTambahBuku.php" role="button">Tambah Buku</a>
         <br><br>
         <table class="table table-warning ">
             <thead>
@@ -102,6 +103,6 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
         <br>
         <br>
     </div>
-</body>
-
-</html>
+    <?php
+    include('layouts/footer.php');
+    ?>

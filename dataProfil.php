@@ -37,7 +37,9 @@ if (isset($_GET['logout'])) {
 
 $name = $row['name'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-
+$_POST['profil'] = 'dataProfil.php';
+$_POST['buku'] = 'index.php';
+include('layouts/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,6 +102,6 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
         <br>
         <br>
     </div>
-</body>
-
-</html>
+    <?php
+    include('layouts/footer.php');
+    ?>
