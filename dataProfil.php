@@ -65,15 +65,14 @@ include('layouts/header.php');
             </form>
         </div>
         <br><br>
-        <br><br>
         <table class="table table-warning ">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Photo Profil</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -81,12 +80,12 @@ include('layouts/header.php');
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
                         <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['email'] ?></td>
-                        <td><?php echo $row['name'] ?></td>
-                        <td><?php echo $row['status'] ?></td>
                         <td>
                             <img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
                         </td>
+                        <td><?php echo $row['name'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['status'] ?></td>
                         <td>
                             <a class="text-danger" href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')">Hapus</a>
                         </td>
@@ -94,11 +93,6 @@ include('layouts/header.php');
                 <?php } ?>
             </tbody>
         </table>
-        <br>
-
-        <div id="center">
-            <a class="btn btn-danger" href="index.php?logout=3" role="button">Log out</a>
-        </div>
         <br>
         <br>
     </div>
