@@ -9,6 +9,10 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['user_name'] = $row['name'];
     $_SESSION['user_email'] = $row['email'];
 }
+if (!isset($_SESSION['logged_in'])) {
+    header('location: login.php');
+    exit;
+}
 $_POST['profil'] = 'profil.php';
 $_POST['buku'] = 'user.php';
 include('layouts/header.php');
