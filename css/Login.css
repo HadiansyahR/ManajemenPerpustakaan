@@ -3,7 +3,11 @@
 body {
     background: #fff;
     overflow: hidden;
+    
 
+}
+a{
+    text-decoration: none;
 }
 
 h1 {
@@ -12,7 +16,7 @@ h1 {
     font-weight: bold;
 }
 
-.fw-medium{
+p{
     letter-spacing: 4px;
     margin-bottom: 50px;
 }
