@@ -119,6 +119,9 @@ thead{
     background-color:  #dbdbdb;
 }
 
+tr{
+    border-bottom: 1px #ece6ee solid;
+}
 td{
     line-height: 2;
     border: none;
@@ -155,16 +158,13 @@ a{
 /* CONTENT-USER END */
 
 /* CONETENT-BUKU */
-.act-delete1{
-    background-color: blue;
+.act-update{
+    background-color: #fff;
     border-color: blue;
     margin-left: auto;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-} 
+}
 
 .update{
-    filter: invert(1);
     margin: auto;
     display: flex;
     padding: 5px;
