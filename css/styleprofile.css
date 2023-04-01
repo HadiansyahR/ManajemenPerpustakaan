@@ -120,6 +120,10 @@ button:hover {
     text-decoration: dashed;
 }
 
+a.link:hover{
+    text-decoration: underline;
+}
+
 footer{
     text-align: center;
     position: relative;
