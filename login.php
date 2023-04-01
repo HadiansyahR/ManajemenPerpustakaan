@@ -69,16 +69,17 @@ if (isset($_POST['login_btn'])) {
 </head>
 
 <body>
-    <section class="Left-content">
-        <h1>SELAMAT<font color="#5907EF"> DATANG</font>
+<section class="Left-content">
+        <h1 class="h1">SELAMAT<font color="#5907EF"> DATANG</font>
         </h1>
         <p class="fw-medium">Silakan isi data anda untuk masuk</p>
 
         <div class="Login-form">
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        name="user_email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
@@ -93,16 +94,16 @@ if (isset($_POST['login_btn'])) {
                     ?>
                 </div>
                 <button type="submit" class="btn btn-primary" id="login-btn" name="login_btn">LOGIN</button>
-                <br>
-                <p style="display: inline;">Belum Punya Akun ? </p>
-                <a class href="register.php">Register</a>
+                <div class="regbtn">
+                    <h6>Belum Punya akun? <a href="register.html"> Register Here</a></h6>
+                </div>
             </form>
         </div>
     </section>
 
     <section class="Right-content">
         <span>
-            <img src="img/iconbuku_login.png" id="book-icon" alt="">
+            <img src="Assets/img/iconbuu_login.png" id="book-icon" alt="">
         </span>
     </section>
 </body>
