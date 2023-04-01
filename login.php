@@ -103,7 +103,7 @@ if (isset($_POST['login_btn'])) {
 
     <section class="Right-content">
         <span>
-            <img src="Assets/img/iconbuu_login.png" id="book-icon" alt="">
+            <img src="Assets/iconbuku_login.png" id="book-icon" alt="">
         </span>
     </section>
 </body>
