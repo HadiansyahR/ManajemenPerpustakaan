@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged_in'])) {
+    header('location: login.php');
+    exit;
+}
 $_POST['profil'] = 'dataProfil.php';
 $_POST['buku'] = 'index.php';
 include('layouts/header.php');
