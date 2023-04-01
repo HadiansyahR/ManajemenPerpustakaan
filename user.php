@@ -35,50 +35,47 @@ $name = $row['judul_buku'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
 $_POST['profil'] = 'profil.php';
 $_POST['buku'] = 'user.php';
-include('layouts/header.php');
+
 ?>
-<div class="container" id="block">
-    <br><br>
-    <div class="search">
-        <form class="search ml-200 " action="" method="post">
-            <input type="text" name="keyword" placeholder="Masukan Judul Buku">
-            <button type="submit" class="btn btn-success" name="cari">Cari</button>
-        </form>
+<head>
+    <?php
+        include('layouts/header.php');
+    ?>
+</head>
+<body>
+    
+    <div class="container" id="block">
+        <div class="search">
+            <form class="search ml-200 " action="" method="post">
+                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
+                <button type="submit" class="btn btn-primary" name="cari">Cari</button>
+            </form>
+        </div>
+        
+            <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<form method="post" action="borrowBook.php">';
+                    
+                    echo '<div class="card">';
+
+                    echo '<input type="hidden" name="book_id" value="'. $row['id_buku'] . '">';
+                    echo '<input type="hidden" name="user_id" value="'. $_SESSION['user_id'] . '">';
+                    echo '<img src="img/book/' . $row['cover_buku'] . '" alt="' . $row['judul_buku'] . '">';
+                    echo '<h3>' . $row['judul_buku'] . '</h3>';
+                    echo '<p>' . $row['penulis_buku'] . '</p>';
+                    echo '<br><br>';
+                    echo '<button type="submit" class="btn btn-primary">Pinjam</button>';
+
+                    echo '</div>';
+
+                    echo '</form>';
+                }
+            ?>
+        
     </div>
-    <br><br>
-    <table class="table table-warning ">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Judul Buku</th>
-                <th scope="col">Penulis</th>
-                <th scope="col">Penerbit</th>
-                <th scope="col">Tahun Terbit</th>
-                <th scope="col">Cover Buku</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                <tr>
-                    <td><?php echo $row['id_buku'] ?></td>
-                    <td><?php echo $row['judul_buku'] ?></td>
-                    <td><?php echo $row['penulis_buku'] ?></td>
-                    <td><?php echo $row['penerbit_buku'] ?></td>
-                    <td><?php echo $row['tahun_terbit'] ?></td>
-                    <td>
-                        <img width="100" src="img/cover/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
-                    </td>
-                    <td>
-                        <a class="text-success" href="#" role="button" onclick="return confirm('Pinjam Buku <?= $row['judul_buku'] ?> ?')">Pinjam</a>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    <br>
-    <br>
-</div>
+    
+</body>
+
 <?php
 include('layouts/footer.php');
 ?>
