@@ -70,7 +70,7 @@ if (isset($_GET['logout'])) {
     <div class="form-search">
       <form class="search" method="post">
         <input class="search-box" type="text" name="keyword" placeholder="Cari Nama User" />
-        <button name="cari">
+        <button class="cari" name="cari">
           <img src="Assets/icon/3917132.png" width="25px" alt="" />
         </button>
       </form>
