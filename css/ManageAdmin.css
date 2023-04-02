@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 
 body {
     background: #ece6ee;
@@ -95,7 +98,7 @@ h1 {
     font-weight: 100;
 }
 
-button{
+.cari{
     background: transparent;
     border: none;
     cursor: pointer;
@@ -173,5 +176,21 @@ a{
 .th-action{
     color: #5907ef;
     width: 20%;  
+}
+
+.add-buku, .tambah{
+    margin-left: 65%;
+    margin-top: 0px;
+}
+
+.tambah{
+    background-color: rgb(58, 150, 58);
+    color: white;
+    border-style: hidden;
+    border-radius: 5px;
+    width: 25%;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
 }
 /* CONETENT-BUKU END*/

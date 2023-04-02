@@ -70,10 +70,16 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
     <div class="form-search">
       <form class="search" method="post">
         <input class="search-box" type="text" name="keyword" placeholder="Cari Judul Buku" />
-        <button name="cari">
+        <button class="cari" name="cari">
           <img src="Assets/icon/3917132.png" width="25px" alt="" />
         </button>
       </form>
+    </div>
+
+    <div class="add-buku">
+      <button class="tambah">
+        + Tambah Buku
+      </button>
     </div>
 
 
