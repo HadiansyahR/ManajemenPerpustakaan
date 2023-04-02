@@ -1,11 +1,16 @@
 <?php
 session_start();
 include('server/connection.php');
+
 if (isset($_SESSION['logged_in'])) {
-    header('location: index.php');
-    exit;
+    if ($_SESSION['user_status'] == 'Admin') {
+        header('location: index.php');
+        exit;
+    } else if ($_SESSION['user_status'] == 'User') {
+        header('location: user.php');
+        exit;
+    }
 }
-// unset($_SESSION['user_status']);
 
 if (isset($_POST['login_btn'])) {
 
@@ -26,6 +31,7 @@ if (isset($_POST['login_btn'])) {
             $user_email,
             $user_name,
             $user_password,
+            $user_telephone,
             $user_status,
             $user_photo
         );
@@ -39,6 +45,7 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_name'] = $user_name;
             $_SESSION['user_email'] = $user_email;
             $_SESSION['user_status'] = $user_status;
+            $_SESSION['user_telephone'] = $user_telephone;
             $_SESSION['user_photo'] = $user_photo;
             $_SESSION['logged_in'] = true;
 
@@ -69,7 +76,7 @@ if (isset($_POST['login_btn'])) {
 </head>
 
 <body>
-<section class="Left-content">
+    <section class="Left-content">
         <h1 class="h1">SELAMAT<font color="#5907EF"> DATANG</font>
         </h1>
         <p class="fw-medium">Silakan isi data anda untuk masuk</p>
@@ -78,8 +85,7 @@ if (isset($_POST['login_btn'])) {
             <form action="login.php" method="post">
                 <div class="mb-3">
                     <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        name="user_email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
