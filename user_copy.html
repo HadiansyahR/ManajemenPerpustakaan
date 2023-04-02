@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="Assets/logo.png" type="image/png" />
+</head>
+
+<body>
+  <div class="Header">
+    <nav class="wrapper">
+      <!-- <a href="#"><img src="Assets/icon/22.png" width="80px" alt=""></a>
+              <a href="#"><img src="Assets/icon/" width="80px" alt=""></a>
+              <a href="#"></a> -->
+      <div class="home">
+        <ul style="list-style: none">
+          <li>
+            <a href="#"><img src="Assets/icon/22.png" width="90px" alt="" /></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="action">
+        <ul style="display: flex; list-style: none">
+          <li>
+            <a href="#"><img src="Assets/icon/user.png" class="user" width="70px" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/icon/off.png" width="70px" alt="" /></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-section">
+    <section class="right-content">
+      <h1>
+        <font color="#5907ef">Nikmati</font> Peminjaman<br />buku secara
+        online <br />
+        & mudah
+      </h1>
+      <p class="desc-hero">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+        facilis deleniti autem reiciendis ipsum optio dolore omnis! <br />
+        Ipsum praesentium eius doloribus id, animi ratione nulla alias fugit
+        reprehenderit nam deleniti.
+      </p>
+
+      <form class="search" method="post">
+        <input class="search-box" type="text" name="keyword" placeholder="Cari Buku" />
+        <button id="#" name="#">
+          <img src="Assets/icon/3917132.png" width="25px" class="search-icon" alt="" />
+        </button>
+      </form>
+    </section>
+
+    <section class="left-content">
+      <img src="Assets/My project.png" width="90%" alt="hero image" />
+      <div class="hero-book-title">
+        <h4>Gone Dead</h4>
+        <p>By George Martin</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- CARD BUKU -->
+  <main>
+    <h1 class="main-title">Peminjaman <font color="#5907ef">BUKU</font>
+    </h1>
+
+    <div class="Book-content">
+      <div class="card">
+        <img src="Assets/cover/harry_potter.jpg" alt="Avatar" style="width:80% ; position: relative;" />
+        <div class="container">
+          <h4><b>harry potter</b></h4>
+          <p>By JK Rowling</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- END -->
+
+  <!-- <br> 
+    <div class="container" id="block">
+        <br><br>
+        <div class="search">
+            <form class="search ml-200 " action="" method="post">
+                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
+                <button type="submit" class="btn btn-success" name="cari">Cari</button>
+            </form>
+        </div>
+        <br><br>
+        <a class=" btn btn-success mr-10" href="PageTambahBuku.php" role="button">Tambah Buku</a>
+        <br><br>
+        <table class="table table-warning ">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Judul Buku</th>
+                    <th scope="col">Penulis</th>
+                    <th scope="col">Penerbit</th>
+                    <th scope="col">Tahun Terbit</th>
+                    <th scope="col">Cover Buku</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+              <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                        <td><?php echo $row['id_buku'] ?></td>
+                        <td><?php echo $row['judul_buku'] ?></td>
+                        <td><?php echo $row['penulis_buku'] ?></td>
+                        <td><?php echo $row['penerbit_buku'] ?></td>
+                        <td><?php echo $row['tahun_terbit'] ?></td>
+                        <td>
+                            <img width="100" src="img/cover/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
+                        </td>
+                        <td>
+                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |
+                            <a class="text-secondary" href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>">Edit</a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+    </div>
+    -->
+</body>
+
+</html>
