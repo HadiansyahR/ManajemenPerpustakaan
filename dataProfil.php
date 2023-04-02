@@ -89,7 +89,7 @@ if (isset($_GET['logout'])) {
       </thead>
       <tbody>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-          <tr class="col-1">
+          <tr class="col-2">
             <td><?php echo $row['id'] ?></td>
             <td><img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>"></td>
             <td><?php echo $row['name'] ?></td>

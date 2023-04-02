@@ -77,9 +77,9 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
     </div>
 
     <div class="add-buku">
-      <button class="tambah">
-        + Tambah Buku
-      </button>
+      <a href="./PageTambahBuku.php"><button class="tambah">
+          + Tambah Buku
+        </button></a>
     </div>
 
 
@@ -96,7 +96,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
       </thead>
       <tbody>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-          <tr class="col-1">
+          <tr class="col-2">
             <td><?php echo $row['id_buku'] ?></td>
             <td><?php echo $row['judul_buku'] ?></td>
             <td><?php echo $row['penulis_buku'] ?></td>
