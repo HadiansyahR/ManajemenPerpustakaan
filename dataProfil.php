@@ -5,97 +5,107 @@ include('server/connection.php');
 $sql = "Select * from akun WHERE status = 'User'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+  $row = mysqli_fetch_assoc($result);
 }
 if (isset($_POST['cari'])) {
-    $keyword = $_POST['keyword'];
-    if (strlen($keyword) > 0) {
-        $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
-    } else {
-        $q = "Select * from akun WHERE status = 'User'";
-    }
-} else {
+  $keyword = $_POST['keyword'];
+  if (strlen($keyword) > 0) {
+    $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
+  } else {
     $q = "Select * from akun WHERE status = 'User'";
+  }
+} else {
+  $q = "Select * from akun WHERE status = 'User'";
 }
 $result = mysqli_query($conn, $q);
 
-
-
-
 if (!isset($_SESSION['logged_in'])) {
-    header('location: login.php');
-    exit;
+  header('location: login.php');
+  exit;
 }
 if (isset($_GET['logout'])) {
-    if (isset($_SESSION['logged_in'])) {
-        unset($_SESSION['logged_in']);
-        unset($_SESSION['user_email']);
-        header('location: login.php');
-        exit;
-    }
+  if (isset($_SESSION['logged_in'])) {
+    unset($_SESSION['logged_in']);
+    unset($_SESSION['user_email']);
+    header('location: login.php');
+    exit;
+  }
 }
 
-$name = $row['name'];
-$photo_name = str_replace(' ', '_', $name) . ".jpg";
-$_POST['profil'] = 'dataProfil.php';
-$_POST['buku'] = 'index.php';
-include('layouts/header.php');
+// $name = $row['name'];
+// $photo_name = str_replace(' ', '_', $name) . ".jpg";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon/home.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/ManageAdmin.css" />
+  <link rel="icon" href="Assets/logo.png" />
+  <title>Mangement Admin-User</title>
 </head>
 
 <body>
-    <div class="container" id="block">
-        <br><br>
-        <div class="search">
-            <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan Nama User">
-                <button type="submit" class="btn btn-success" name="cari">Cari</button>
-            </form>
-        </div>
-        <br><br>
-        <table class="table table-warning ">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Photo Profil</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td>
-                            <img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>">
-                        </td>
-                        <td><?php echo $row['name'] ?></td>
-                        <td><?php echo $row['email'] ?></td>
-                        <td><?php echo $row['status'] ?></td>
-                        <td>
-                            <a class="text-danger" href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')">Hapus</a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-        <br>
-        <br>
+
+  <!--  HEADER    -->
+  <nav>
+    <img src="Assets/logo.png" id="icon-header" width="150" alt="headerlogo" />
+  </nav>
+  <!-- END HEADER -->
+
+  <!--   SIDE BAR   -->
+  <div class="side-bar">
+    <a href="./dataprofil.php"><img class="side" id="profile" width="50" src="Assets/profile.png" alt="Profil" /></a>
+    <a href="./index.php"><img class="side" width="50" src="Assets/book.png" alt="Book" /></a>
+    <a href="./index.php?logout=1"><img class="side" id="logout" width="50" src="Assets/exit.png" alt="Exit" /></a>
+  </div>
+  <!-- END SIDE BAR -->
+
+  <!--  CONTENT-USER    -->
+  <div class="Container">
+    <h1>KELOLA <font color="#5907EF"> USER</font>
+    </h1>
+    <div class="form-search">
+      <form class="search" method="post">
+        <input class="search-box" type="text" name="keyword" placeholder="Cari Nama User" />
+        <button name="cari">
+          <img src="Assets/icon/3917132.png" width="25px" alt="" />
+        </button>
+      </form>
     </div>
-    <?php
-    include('layouts/footer.php');
-    ?>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Foto</th>
+          <th>Nama</th>
+          <th>Email</th>
+          <th>Telephone</th>
+          <th class="th-hapus">HAPUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <tr class="col-1">
+            <td><?php echo $row['id'] ?></td>
+            <td><img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>"></td>
+            <td><?php echo $row['name'] ?></td>
+            <td><?php echo $row['email'] ?></td>
+            <td><?php echo $row['telephone'] ?></td>
+            <td>
+              <div class="act-delete">
+                <a href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
+              </div>
+            </td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+  <!--   END CONTENT-USER   -->
+</body>
+
+</html>

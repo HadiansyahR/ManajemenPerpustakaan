@@ -5,101 +5,113 @@ include('server/connection.php');
 $sql = "Select * from buku";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+  $row = mysqli_fetch_assoc($result);
 }
 
 if (isset($_POST['cari'])) {
-    $keyword = $_POST['keyword'];
-    $q = "Select * from buku where judul_buku LIKE '%$keyword%'";
+  $keyword = $_POST['keyword'];
+  $q = "Select * from buku where judul_buku LIKE '%$keyword%'";
 } else {
-    $q = 'Select * from buku';
+  $q = 'Select * from buku';
 }
 
 $result = mysqli_query($conn, $q);
 
 if (!isset($_SESSION['logged_in'])) {
-    header('location: login.php');
-    exit;
+  header('location: login.php');
+  exit;
 }
 
 if (isset($_GET['logout'])) {
-    if (isset($_SESSION['logged_in'])) {
-        unset($_SESSION['logged_in']);
-        unset($_SESSION['user_email']);
-        header('location: login.php');
-        exit;
-    }
+  if (isset($_SESSION['logged_in'])) {
+    unset($_SESSION['logged_in']);
+    unset($_SESSION['user_email']);
+    header('location: login.php');
+    exit;
+  }
 }
 
 $name = $row['judul_buku'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-$_POST['profil'] = 'dataProfil.php';
-$_POST['buku'] = 'index.php';
-include('layouts/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon/home.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/ManageAdmin.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link rel="icon" href="Assets/logo.png" />
+  <title>Management Admin-Book</title>
 </head>
 
 <body>
-    <br>
-    <div class="container" id="block">
-        <br><br>
-        <div class="search">
-            <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
-                <button type="submit" class="btn btn-success" name="cari">Cari</button>
-            </form>
-        </div>
-        <br><br>
-        <a class=" btn btn-success mr-10" href="PageTambahBuku.php" role="button">Tambah Buku</a>
-        <br><br>
-        <table class="table table-warning ">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Judul Buku</th>
-                    <th scope="col">Penulis</th>
-                    <th scope="col">Penerbit</th>
-                    <th scope="col">Tahun Terbit</th>
-                    <th scope="col">Cover Buku</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <tr>
-                        <td><?php echo $row['id_buku'] ?></td>
-                        <td><?php echo $row['judul_buku'] ?></td>
-                        <td><?php echo $row['penulis_buku'] ?></td>
-                        <td><?php echo $row['penerbit_buku'] ?></td>
-                        <td><?php echo $row['tahun_terbit'] ?></td>
-                        <td>
-                            <img width="100" src="img/cover/<?php echo $row['cover_buku'] ?>" alt="<?php echo $row['cover_buku'] ?>">
-                        </td>
-                        <td>
-                            <a class="text-danger" href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')">Hapus</a> |
-                            <a class="text-secondary" href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>">Edit</a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-        <br>
-        <br>
-        <br>
+  <!--  HEADER    -->
+  <nav>
+    <img src="Assets/logo.png" id="icon-header" width="150" alt="headerlogo" />
+  </nav>
+  <!-- END HEADER -->
+
+  <!--   SIDE BAR   -->
+  <div class="side-bar">
+    <a href="./dataprofil.php"><img class="side" id="profile" width="50" src="Assets/profile.png" alt="Profil" /></a>
+    <a href="./index.php"><img class="side" width="50" src="Assets/book.png" alt="Book" /></a>
+    <a href="./index.php?logout=1"><img class="side" id="logout" width="50" src="Assets/exit.png" alt="Exit" /></a>
+  </div>
+
+  <!--  END SIDE BAR -->
+
+  <!--  CONTENT-BUKU    -->
+  <div class="Container">
+    <h1>KELOLA <font color="#5907EF"> BUKU</font>
+    </h1>
+    <div class="form-search">
+      <form class="search" method="post">
+        <input class="search-box" type="text" name="keyword" placeholder="Cari Judul Buku" />
+        <button name="cari">
+          <img src="Assets/icon/3917132.png" width="25px" alt="" />
+        </button>
+      </form>
     </div>
-    <?php
-    include('layouts/footer.php');
-    // push test
-    ?>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID Buku</th>
+          <th>Judul Buku</th>
+          <th>Penulis</th>
+          <th>Penerbit</th>
+          <th class="th-tahun">Tahun Terbit</th>
+          <th class="th-action" colspan="2">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <tr class="col-1">
+            <td><?php echo $row['id_buku'] ?></td>
+            <td><?php echo $row['judul_buku'] ?></td>
+            <td><?php echo $row['penulis_buku'] ?></td>
+            <td><?php echo $row['penerbit_buku'] ?></td>
+            <td><?php echo $row['tahun_terbit'] ?></td>
+            <td>
+              <div class="act-delete">
+                <a href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
+              </div>
+            </td>
+            <td>
+              <div class="act-update">
+                <a href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>"><img src="Assets/icon/edit-246.png" class="update" width="40px" alt="" /></a>
+              </div>
+            </td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+  <!--  END CONTENT-USER   -->
+</body>
+
+</html>

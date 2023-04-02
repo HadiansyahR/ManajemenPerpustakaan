@@ -12,20 +12,20 @@
 
 
 <body>
-<section class="Left-content2">
+    <section class="Left-content2">
         <h1 id="2h">SELAMAT<font color="#5907EF"> DATANG</font>
         </h1>
         <p class="fw-medium2" id="2p">Mari nikamati mudahnya membaca</p>
 
         <div class="Login-form2">
-            <form action="login.php" method="post">
+            <form action="action.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">User Name</label>
-                    <input type="username" class="form-control"  name="user_name">
+                    <input type="username" class="form-control" name="user_name">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="user_password">
+                    <input type="email" class="form-control" name="user_email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Telephone</label>
@@ -33,17 +33,17 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control"  name="user_password">
+                    <input type="password" class="form-control" name="user_password">
                 </div>
 
                 <!-- tambahin action untuk upload foto -->
                 <div class="mb-3">
                     <label class="form-label">Photo</label>
-                    <input type="file" class="form-control"  name="user_photo">
+                    <input type="file" class="form-control" name="photo">
                 </div>
-                
+
                 <!--  -->
-                <button type="submit" class="btn btn-primary"  name="login_btn">REGISTER</button>
+                <button type="submit" class="btn btn-primary" name="login_btn">REGISTER</button>
                 <div class="logbtn">
                     <h6>Sudah punya akun?<a href="login.php"> Login here</a></h6>
                 </div>
@@ -53,7 +53,7 @@
 
     <section class="Right-content2">
         <span>
-            <img  src="Assets/iconbuku_login.png" id="book-icon2" alt="">
+            <img src="Assets/iconbuku_login.png" id="book-icon2" alt="">
         </span>
     </section>
 
