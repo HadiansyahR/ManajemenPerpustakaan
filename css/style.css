@@ -87,6 +87,7 @@ button {
 
 .left-content {
   margin-top: -2em;
+  margin-left: 5em;
 }
 
 .hero-book-title {
@@ -104,6 +105,14 @@ h4 {
   margin-top: 60px;
   font-size: 40px;
   letter-spacing: 2px;
+}
+
+.card {
+  border: none;
+  margin-top: 10px;
+  margin-left: 5em;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 15%;
 }
 
 /* 
