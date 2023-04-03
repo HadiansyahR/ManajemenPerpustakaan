@@ -1,8 +1,20 @@
 body{
     margin: 1.5em;
-    font-family: 'Montserrat', sans-serif;
     overflow: hidden;
+}
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/MontserratAlternates-Regular.otf);
+}
+@font-face {
+    font-family: 'Bebasneue';
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+.bebas{
+    font-family: 'Bebasneue';
+    letter-spacing: 0.27em;
 }
 
 a{
@@ -95,7 +107,7 @@ section.hero {
 svg.down-arrow{
     stroke: aliceblue;
     position: absolute;
-    bottom: 2em;
+    bottom: 4em;
     width: 1em;
 }
 
@@ -206,7 +218,7 @@ svg.path{
         z-index: -1;
         margin-right: auto;
         float: right;
-        padding-right: 24.6em;
+        padding-right: 30em;
         display: -webkit-box;
     }
 
