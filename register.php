@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['user_status'] == 'Admin') {
+        header('location: index.php');
+        exit;
+    } else if ($_SESSION['user_status'] == 'User') {
+        header('location: user.php');
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
