@@ -5,77 +5,123 @@ include('server/connection.php');
 $sql = "Select * from buku";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+  $row = mysqli_fetch_assoc($result);
 }
 
 if (isset($_POST['cari'])) {
-    $keyword = $_POST['keyword'];
-    $q = "Select * from buku where judul_buku LIKE '%$keyword%'";
+  $keyword = $_POST['keyword'];
+  $q = "Select * from buku where judul_buku LIKE '%$keyword%'";
 } else {
-    $q = 'Select * from buku';
+  $q = 'Select * from buku';
 }
 
 $result = mysqli_query($conn, $q);
 
 if (!isset($_SESSION['logged_in'])) {
-    header('location: login.php');
-    exit;
+  header('location: login.php');
+  exit;
 }
 
 if (isset($_GET['logout'])) {
-    if (isset($_SESSION['logged_in'])) {
-        unset($_SESSION['logged_in']);
-        unset($_SESSION['user_email']);
-        header('location: login.php');
-        exit;
-    }
+  if (isset($_SESSION['logged_in'])) {
+    unset($_SESSION['logged_in']);
+    unset($_SESSION['user_email']);
+    header('location: login.php');
+    exit;
+  }
 }
 
 $name = $row['judul_buku'];
 $photo_name = str_replace(' ', '_', $name) . ".jpg";
-$_POST['profil'] = 'profil.php';
-$_POST['buku'] = 'user.php';
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <?php
-        include('layouts/header.php');
-    ?>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="Assets/logo.png" type="image/png" />
 </head>
+
 <body>
-    
-    <div class="container" id="block">
-        <div class="search">
-            <form class="search ml-200 " action="" method="post">
-                <input type="text" name="keyword" placeholder="Masukan Judul Buku">
-                <button type="submit" class="btn btn-primary" name="cari">Cari</button>
-            </form>
+  <div class="Header">
+    <nav class="wrapper">
+      <div class="home">
+        <ul style="list-style: none">
+          <li>
+            <a href="./user.php"><img src="Assets/icon/22.png" width="90px" alt="" /></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="action">
+        <ul style="display: flex; list-style: none">
+          <li>
+            <a href="./profil.php"><img src="Assets/icon/user.png" class="user" width="70px" alt="" /></a>
+          </li>
+          <li>
+            <a href="./user.php?logout=1"><img src="Assets/icon/off.png" width="70px" alt="" /></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-section">
+    <section class="right-content">
+      <h1>
+        <font color="#5907ef">Nikmati</font> Peminjaman<br />buku secara
+        online <br />
+        & mudah
+      </h1>
+      <p class="desc-hero">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+        facilis deleniti autem reiciendis ipsum optio dolore omnis! <br />
+        Ipsum praesentium eius doloribus id, animi ratione nulla alias fugit
+        reprehenderit nam deleniti.
+      </p>
+      <br>
+      <form class="search" method="post">
+        <input class="search-box" type="text" name="keyword" placeholder="Cari Buku" />
+        <button name="cari">
+          <img src="Assets/icon/3917132.png" width="25px" class="search-icon" alt="" />
+        </button>
+      </form>
+    </section>
+
+    <section class="left-content">
+      <img src="Assets/My project.png" width="90%" alt="hero image" />
+      <div class="hero-book-title">
+        <h4>Gone Dead</h4>
+        <p>By George Martin</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- CARD BUKU -->
+  <main>
+    <h1 class="main-title">Peminjaman <font color="#5907ef">BUKU</font>
+    </h1>
+    <br>
+    <div class="Book-content row">
+      <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+        <div class="card col-lg-3">
+          <img src="img/book/<?php echo $row['cover_buku'] ?>" alt="Cover buku" style="width:80% ; position: relative;" />
+          <div class="container">
+            <h4><b><?php echo $row['judul_buku'] ?></b></h4>
+            <p>By <?php echo $row['penulis_buku'] ?></p>
+          </div>
         </div>
-        
-            <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<form method="post" action="borrowBook.php">';
-                    
-                    echo '<div class="card">';
-
-                    echo '<input type="hidden" name="book_id" value="'. $row['id_buku'] . '">';
-                    echo '<input type="hidden" name="user_id" value="'. $_SESSION['user_id'] . '">';
-                    echo '<img src="img/book/' . $row['cover_buku'] . '" alt="' . $row['judul_buku'] . '">';
-                    echo '<h3>' . $row['judul_buku'] . '</h3>';
-                    echo '<p>' . $row['penulis_buku'] . '</p>';
-                    echo '<br><br>';
-                    echo '<button type="submit" class="btn btn-primary">Pinjam</button>';
-
-                    echo '</div>';
-
-                    echo '</form>';
-                }
-            ?>
-        
+      <?php } ?>
     </div>
-    
+  </main>
+  <!-- END -->
+
 </body>
 
-<?php
-include('layouts/footer.php');
-?>
+</html>
