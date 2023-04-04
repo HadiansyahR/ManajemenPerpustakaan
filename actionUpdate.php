@@ -7,11 +7,12 @@ $telp = $_POST['user_telp'];
 $password = $_POST['user_password'];
 $name = $_POST['user_name'];
 
-$photo_name = str_replace(' ', '_', $name) . ".jpg";
-$path = 'img/profil/' . $photo_name;
+$photo_name = mt_rand() . str_replace(' ', '', $name) . ".jpg";
+$path = 'img/profil/' . $_SESSION['user_photo'];
 
-if (isset($_POST['photo'])) {
-    if (file_exists($path)) {
+
+if (!empty($_FILES['photo']['tmp_name'])) {
+    if (file_exists($path) && $_SESSION['user_photo'] != 'member.jpg') {
         unlink($path);
     }
     $photo = $_FILES['photo']['tmp_name'];
