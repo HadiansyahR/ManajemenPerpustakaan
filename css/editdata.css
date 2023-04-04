@@ -11,6 +11,12 @@ header{
     justify-content: space-between;
     padding: 0 19em;
 }
+button{
+    background-color: red;
+    text-align: center;
+    display: block;
+    color: white;
+}
 
 header img {
     width: 5em;

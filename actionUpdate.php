@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "server/connection.php";
 $id = $_GET['id'];
 $email = $_POST['user_email'];
@@ -7,7 +7,20 @@ $telp = $_POST['user_telp'];
 $password = $_POST['user_password'];
 $name = $_POST['user_name'];
 
-$query = "UPDATE akun SET email = '$email', name = '$name', telephone = '$telp', password = '$password' WHERE id = '$id'";
+$photo_name = str_replace(' ', '_', $name) . ".jpg";
+$path = 'img/profil/' . $photo_name;
+
+if (isset($_POST['photo'])) {
+    if (file_exists($path)) {
+        unlink($path);
+    }
+    $photo = $_FILES['photo']['tmp_name'];
+    move_uploaded_file($photo, "img/profil/" . $photo_name);
+} else {
+    $photo_name =  $_SESSION['user_photo'];
+}
+
+$query = "UPDATE akun SET email = '$email', name = '$name', telephone = '$telp', password = '$password' , photo = '$photo_name' WHERE id = '$id'";
 mysqli_query($conn, $query);
 header("location:profil.php");
 die();

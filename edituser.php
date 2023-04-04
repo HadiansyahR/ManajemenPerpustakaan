@@ -20,24 +20,20 @@ session_start();
             <a class="atr" href="./user.php?logout=1"><img src="icon/logoff.png" alt=""></a>
         </header>
         <main>
-            <form id="up" method="post" action="actionUpdate.php?id=<?= $_SESSION['user_id'] ?>">
+            <form id="up" method="post" enctype="multipart/form-data" action="actionUpdate.php?id=<?= $_SESSION['user_id'] ?>">
                 <h1>Edit <span>User</span></h1>
                 <div class="update">
-                    <label for="fname"><span>Name:</span> <input type="text" id="fname" name="user_name" value="<?= $_SESSION['user_name'] ?>"></label>
-                    <label for="Email"><span>Email:</span> <input type="email" id="email" name="user_email" value="<?= $_SESSION['user_email'] ?>"></label>
-                    <label for="Telephone"><span>No Telp:</span> <input type="text" id="telp" name="user_telp" value="<?= $_SESSION['user_telp'] ?>"></label>
-                    <label for="Password"><span>Password:</span> <input type="password" id="password" name="user_password" value="<?= $_SESSION['user_password'] ?>"></label>
+                    <label for="fname"><span>Name:</span><input type="text" id="fname" name="user_name" value="<?= $_SESSION['user_name'] ?> " required></label>
+                    <label for="Email"><span>Email:</span> <input type="email" id="email" name="user_email" value="<?= $_SESSION['user_email'] ?>" required></label>
+                    <label for="Telephone"><span>No Telp:</span> <input type="text" id="telp" name="user_telp" value="<?= $_SESSION['user_telp'] ?>" required></label>
+                    <label for="Password"><span>Password:</span> <input type="password" id="password" name="user_password" value="<?= $_SESSION['user_password'] ?>" required></label>
+                    <label for="photo"><span>Photo:</span> <input type="file" id="photo" name="photo"></label>
                 </div>
                 <input type="submit" value="UPDATE">
-                <a href="./profil.php">Kembali ke laman profile?</a>
+                <a href="./profil.php">Kembali ke Laman Profil?</a>
             </form>
             <div class="picture">
                 <img class="picture" src="img/profil/<?= $_SESSION['user_photo'] ?>" alt="">
-                <!-- <form id="img">
-                    <label for="image">Upload an image:</label> <br>
-                    <input type="file" id="image" name="image" accept="image/*">
-                    <button onclick="document.getElementById('image').click()">CLICK ME</button>
-                </form> -->
             </div>
         </main>
     </div>

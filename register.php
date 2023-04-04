@@ -33,24 +33,23 @@ if (isset($_SESSION['logged_in'])) {
             <form action="action.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">User Name</label>
-                    <input type="username" class="form-control" name="user_name">
+                    <input type="username" class="form-control" name="user_name" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="user_email">
+                    <input type="email" class="form-control" name="user_email" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Telephone</label>
-                    <input type="text" class="form-control" name="telephone">
+                    <input type="text" class="form-control" name="telephone" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="user_password">
+                    <input type="password" class="form-control" name="user_password" required>
                 </div>
-
                 <!-- tambahin action untuk upload foto -->
                 <div class="mb-3">
-                    <label class="form-label">Photo</label>
+                    <label class="form-label">Photo (Optional)</label>
                     <input type="file" class="form-control" name="photo">
                 </div>
 

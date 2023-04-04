@@ -85,11 +85,11 @@ if (isset($_POST['login_btn'])) {
             <form action="login.php" method="post">
                 <div class="mb-3">
                     <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="user_password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="user_password" required>
                 </div>
                 <?php if (isset($_GET['error'])) ?>
                 <div class="error">
