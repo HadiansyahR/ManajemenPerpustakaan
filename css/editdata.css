@@ -134,9 +134,9 @@ a:hover{
 
 .picture button{
     border-radius: 3px;
-    background-color: #5907ef;
+    background-color: #ffffff;
     border: 1px solid #444343;
-    color: aliceblue;
+    color: #444343;
     padding: 0.6em 3em;
     font-size: 13pt;
     font-weight: bolder;
@@ -146,7 +146,7 @@ a:hover{
 }
 
 .picture button:hover{
-    background-color: aliceblue;
+    background-color: #5907ef;
     border: 1px solid #444343;
-    color: #5907ef;
+    color: #ffffff;
 }
