@@ -7,7 +7,7 @@ $telp = $_POST['user_telp'];
 $password = $_POST['user_password'];
 $name = $_POST['user_name'];
 
-$photo_name = mt_rand() . str_replace(' ', '', $name) . ".jpg";
+$photo_name = rand(0, 9999) . str_replace(' ', '', $name) . ".jpg";
 $path = 'img/profil/' . $_SESSION['user_photo'];
 
 
