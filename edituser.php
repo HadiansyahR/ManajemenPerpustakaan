@@ -1,5 +1,9 @@
 <?php
 session_start();
+if ($_SESSION['user_status'] == 'Admin') {
+    header('location: dataprofil.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

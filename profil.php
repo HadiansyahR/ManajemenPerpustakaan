@@ -17,6 +17,10 @@ if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');
     exit;
 }
+if ($_SESSION['user_status'] == 'Admin') {
+    header('location: dataprofil.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

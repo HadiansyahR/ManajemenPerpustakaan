@@ -30,9 +30,10 @@ if (isset($_GET['logout'])) {
     exit;
   }
 }
-
-$name = $row['judul_buku'];
-$photo_name = str_replace(' ', '_', $name) . ".jpg";
+if ($_SESSION['user_status'] == 'Admin') {
+  header('location: index.php');
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

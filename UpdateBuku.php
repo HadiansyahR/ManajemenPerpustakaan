@@ -17,6 +17,10 @@ if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');
     exit;
 }
+if ($_SESSION['user_status'] == 'User') {
+    header('location: user.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
