@@ -52,8 +52,6 @@ if (isset($_SESSION['logged_in'])) {
                     <label class="form-label">Photo (Optional)</label>
                     <input type="file" class="form-control" name="photo">
                 </div>
-
-                <!--  -->
                 <button type="submit" class="btn btn-primary" name="login_btn">REGISTER</button>
                 <div class="logbtn">
                     <h6>Sudah punya akun?<a href="login.php"> Login here</a></h6>

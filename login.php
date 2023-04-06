@@ -15,14 +15,11 @@ if (isset($_SESSION['logged_in'])) {
 if (isset($_POST['login_btn'])) {
 
     $email = $_POST['user_email'];
-    $password = ($_POST['user_password']);
+    $password = md5(($_POST['user_password']));
 
-    $query = "SELECT * FROM akun
-    WHERE email = ? AND password = ? LIMIT 1";
-
+    $query = "SELECT * FROM akun WHERE email = ? AND password = ? LIMIT 1";
     $stmt_login = $conn->prepare($query);
     $stmt_login->bind_param('ss', $email, $password);
-
 
     if ($stmt_login->execute()) {
 

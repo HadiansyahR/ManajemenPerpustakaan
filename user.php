@@ -80,10 +80,9 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
         & mudah
       </h1>
       <p class="desc-hero">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-        facilis deleniti autem reiciendis ipsum optio dolore omnis! <br />
-        Ipsum praesentium eius doloribus id, animi ratione nulla alias fugit
-        reprehenderit nam deleniti.
+        Rumah Kertas adalah sebuah situs web perpustakaan yang menyediakan layanan peminjaman buku secara online. Situs ini menyediakan berbagai macam buku dari berbagai kategori seperti fiksi, non-fiksi, sains, sejarah, biografi, dan masih banyak lagi.
+        <br><br>
+        Situs ini menawarkan kemudahan bagi para pengguna untuk meminjam buku secara online tanpa perlu pergi ke perpustakaan fisik. Selain itu, Rumah Kertas juga menawarkan fitur pencarian buku yang memudahkan pengguna untuk menemukan buku yang mereka cari.
       </p>
       <br>
       <form class="search" method="post">
@@ -110,8 +109,8 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
     <br>
     <div class="Book-content row">
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-        <div class="card col-lg-3">
-          <img src="img/book/<?php echo $row['cover_buku'] ?>" alt="Cover buku" style="width:80% ; position: relative;" />
+        <div class="card col-lg-4">
+          <img src="img/book/<?php echo $row['cover_buku'] ?>" alt="Cover buku" style="width:75% ;" />
           <div class="container">
             <h4><b><?php echo $row['judul_buku'] ?></b></h4>
             <p>By <?php echo $row['penulis_buku'] ?></p>

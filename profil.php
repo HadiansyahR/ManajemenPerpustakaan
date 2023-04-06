@@ -53,22 +53,16 @@ if (!isset($_SESSION['logged_in'])) {
                         <p><span class="usr-sta">Status</span></p>
                         <p class="star"><?php echo $row['status'] ?></p>
                     </div>
-                    <!-- <div class="square"></div> -->
                 </section>
                 <section class="update">
                     <h1>Update profile Anda?</h1>
                     <p>Mari lengkapi identitas Anda</p>
                     <br>
                     <a class="button btn btn-success mr-10" href="edituser.php" role="button">EDIT</a>
-                    <!-- <br> -->
-                    <!-- <button href="./updateProfil.php">EDIT</button> -->
                     <a class="link" href="./user.php">Kembali ke homepage?</a>
                 </section>
             </div>
         </main>
-        <footer>
-            <p>2023 @RumahBuku</p>
-        </footer>
     </div>
 </body>
 

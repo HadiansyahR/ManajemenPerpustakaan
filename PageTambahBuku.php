@@ -38,10 +38,6 @@ if (!isset($_SESSION['logged_in'])) {
             </form>
             <div class="picture">
                 <img class="picture" src="img/sampleprofileimage.jpg" alt="">
-                <!-- <form id="img">
-                    <input type="file" id="image" name="image" accept="image/*">
-                    <button onclick="document.getElementById('image').click()">Tambah foto buku</button>
-                </form> -->
             </div>
         </main>
     </div>

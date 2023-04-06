@@ -35,9 +35,6 @@ if (isset($_GET['logout'])) {
     exit;
   }
 }
-
-// $name = $row['name'];
-// $photo_name = str_replace(' ', '_', $name) . ".jpg";
 ?>
 <!DOCTYPE html>
 <html lang="en">

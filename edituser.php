@@ -26,7 +26,6 @@ session_start();
                     <label for="fname"><span>Name:</span><input type="text" id="fname" name="user_name" value="<?= $_SESSION['user_name'] ?> " required></label>
                     <label for="Email"><span>Email:</span> <input type="email" id="email" name="user_email" value="<?= $_SESSION['user_email'] ?>" required></label>
                     <label for="Telephone"><span>No Telp:</span> <input type="text" id="telp" name="user_telp" value="<?= $_SESSION['user_telp'] ?>" required></label>
-                    <label for="Password"><span>Password:</span> <input type="password" id="password" name="user_password" value="<?= $_SESSION['user_password'] ?>" required></label>
                     <label id="img" for="photo"><span>Photo:</span> <input type="file" id="photo" name="photo"></label>
                 </div>
                 <input type="submit" value="UPDATE">

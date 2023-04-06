@@ -10,7 +10,6 @@ $tahunTerbit = $_POST['tahun_terbit'];
 $cover_buku = rand(0, 9999) . str_replace(' ', '', $judul) . ".jpg";
 $path = 'img/book/' . $_SESSION['cover_buku'];
 
-
 if (!empty($_FILES['cover_buku']['tmp_name'])) {
     if (file_exists($path) && $_SESSION['cover_buku'] != 'default.jpg') {
         unlink($path);
