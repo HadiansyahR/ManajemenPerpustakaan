@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/MontserratAlternates-Regular.otf);
+}
+
+@font-face {
+    font-family: 'Bebasneue';
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 19em;
+}
+
+button {
+    background-color: red;
+    text-align: center;
+    display: block;
+    color: white;
+}
+
+header img {
+    width: 5em;
+}
+
+main {
+    align-items: center;
+    padding: 0 20em;
+}
+
+thead{
+    font-size: 20px;
+    color: #343434;
+    border-bottom: 3px solid #343434;
+}
+
+
+table{
+    margin: auto;
+    margin-top: 60px;
+    width: 90%;
+    padding: 20px;  
+    border-collapse: collapse;
+}
+
+
+tr{
+    border-bottom: 1px #ece6ee solid;
+}
+
+td{
+    line-height: 3;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    color: #5a5a5a;
+}
+
+
+h1 {
+    text-align: center;
+    color: #444343;
+    font-family: 'Bebasneue';
+    letter-spacing: 0.27em;
+    font-size: 50px;
+}
+
+h1 span {
+    color: blueviolet;
+}
+
+a {
+    display: block;
+    margin-top: 1em;
+    font-style: italic;
+    font-size: smaller;
+    text-decoration: dashed;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.back{
+    margin-top: 50px;
+}
