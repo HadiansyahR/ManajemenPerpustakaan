@@ -62,6 +62,13 @@ main {
     text-align: left;
     padding-bottom: 3em;    
 }
+.updateId{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    text-align: left;
+    padding-bottom: 1em;    
+}
 
 .update input{
     border-radius: 5px;
@@ -83,7 +90,7 @@ label span{
 .picture{
     border-radius: 7px;
     flex: 1;
-    width: 30em;
+    width: 20em;
 }
 
 h1{

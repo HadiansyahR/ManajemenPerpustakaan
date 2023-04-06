@@ -113,7 +113,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             </td>
             <td>
               <div class="act-update">
-                <a href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>&judul_buku=<?= $row['judul_buku']; ?>&penulis_buku=<?= $row['penulis_buku']; ?>&penerbit_buku=<?= $row['penerbit_buku']; ?>&tahun_terbit=<?= $row['tahun_terbit']; ?>"><img src="Assets/icon/edit-246.png" class="update" width="40px" alt="" /></a>
+                <a href="UpdateBuku.php?id_buku=<?= $row['id_buku']; ?>"><img src="Assets/icon/edit-246.png" class="update" width="40px" alt="" /></a>
               </div>
             </td>
           </tr>
