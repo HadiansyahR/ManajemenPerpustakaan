@@ -81,7 +81,6 @@ if (isset($_GET['logout'])) {
       <thead>
         <tr>
           <th>ID</th>
-          <th>Foto</th>
           <th>Nama</th>
           <th>Email</th>
           <th>Telephone</th>
@@ -92,7 +91,6 @@ if (isset($_GET['logout'])) {
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <tr class="col-2">
             <td><?php echo $row['id'] ?></td>
-            <td><img width="100" src="img/profil/<?php echo $row['photo'] ?>" alt="Foto <?php echo $row['name'] ?>"></td>
             <td><?php echo $row['name'] ?></td>
             <td><?php echo $row['email'] ?></td>
             <td><?php echo $row['telephone'] ?></td>

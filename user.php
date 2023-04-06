@@ -75,19 +75,18 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
   <div class="hero-section">
     <section class="right-content">
       <h1>
-        <font color="#5907ef">Nikmati</font> Peminjaman<br />buku secara
-        online <br />
-        & mudah
+        <font color="#5907ef">Nikmati</font> Peminjaman buku secara
+        online & mudah
       </h1>
       <p class="desc-hero">
-        Rumah Kertas adalah sebuah situs web perpustakaan yang menyediakan layanan peminjaman buku secara online. Situs ini menyediakan berbagai macam buku dari berbagai kategori seperti fiksi, non-fiksi, sains, sejarah, biografi, dan masih banyak lagi.
-        <br><br>
-        Situs ini menawarkan kemudahan bagi para pengguna untuk meminjam buku secara online tanpa perlu pergi ke perpustakaan fisik. Selain itu, Rumah Kertas juga menawarkan fitur pencarian buku yang memudahkan pengguna untuk menemukan buku yang mereka cari.
+        Rumah Kertas adalah sebuah situs web perpustakaan yang menyediakan layanan peminjaman buku secara online.
+        Situs ini menyediakan berbagai macam buku dari berbagai kategori seperti fiksi, non-fiksi, sains, sejarah,
+        biografi, dan masih banyak lagi.
       </p>
       <br>
       <form class="search" method="post">
         <input class="search-box" type="text" name="keyword" placeholder="Cari Buku" />
-        <button name="cari">
+        <button class="btn-cari" name="cari">
           <img src="Assets/icon/3917132.png" width="25px" class="search-icon" alt="" />
         </button>
       </form>
@@ -106,14 +105,19 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
   <main>
     <h1 class="main-title">Peminjaman <font color="#5907ef">BUKU</font>
     </h1>
-    <br>
+
     <div class="Book-content row">
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="card col-lg-4">
           <img src="img/book/<?php echo $row['cover_buku'] ?>" alt="Cover buku" style="width:75% ;" />
           <div class="container">
-            <h4><b><?php echo $row['judul_buku'] ?></b></h4>
-            <p>By <?php echo $row['penulis_buku'] ?></p>
+            <h5><?php echo $row['judul_buku'] ?></h5>
+            <p>By
+              <?php echo $row['penulis_buku'] ?>
+            </p>
+          </div>
+          <div class="tombol-pinjam">
+            <input type="button" class="btn-pinjam" value="Pinjam">
           </div>
         </div>
       <?php } ?>
