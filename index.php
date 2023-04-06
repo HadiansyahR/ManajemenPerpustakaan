@@ -80,13 +80,15 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
       </form>
     </div>
 
-    <div class="add-buku">
+    <div class="act-buku">
       <a href="./PageTambahBuku.php"><button class="tambah">
           + Tambah Buku
         </button></a>
+        <a href="daftarPeminjam.html"><button class="lihat">
+          Daftar Peminjam
+        </button></a>
     </div>
-
-
+  
     <table>
       <thead>
         <tr>

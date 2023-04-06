@@ -160,7 +160,7 @@ a{
 
 /* CONTENT-USER END */
 
-/* CONETENT-BUKU */
+/* CONTENT-BUKU */
 .act-update{
     background-color: #fff;
     border-color: blue;
@@ -178,19 +178,31 @@ a{
     width: 20%;  
 }
 
-.add-buku, .tambah{
-    margin-left: 65%;
-    margin-top: 0px;
+.act-buku{
+    margin-left: 75%;
 }
-
-.tambah{
+.tambah {
+    margin-top: 25px;
+    margin-left: 10px;
     background-color: rgb(58, 150, 58);
     color: white;
     border-style: hidden;
     border-radius: 5px;
-    width: 25%;
     height: 40px;
     font-size: 18px;
     cursor: pointer;
 }
+
+.lihat{
+    margin-top: 25px;
+    margin-left: 10px;
+    border-color: #5907ef;
+    background-color: white;
+    color: #5907ef;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;  
+}
+
 /* CONETENT-BUKU END*/
