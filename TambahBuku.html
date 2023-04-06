@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/editdata.css">
+    <title>Tambah Buku</title>
+    <link rel="shortcut icon" href="./icon/tabicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a class="logo" href="#"><img src="icon/22.png" alt=""></a>
+            <a class="atr" href="#"><img src="icon/logoff.png" alt=""></a> 
+        </header>
+        <main>
+            <form id="up" action="/action_page.php">
+                <h1>Tambah <span>BUKU</span></h1>
+                <div class="update">
+                    <label for="fname"><span>Judul buku:</span> <input type="text" id="fname" name="fname"></label>
+                    <label for="Email"><span>Penulis:</span> <input type="email" id="email" name="email"></label>
+                    <label for="Telephone"><span>Tahun terbit:</span> <input type="text" id="telp" name="telp"></label>
+                    <label for="Password"><span>Penerbit:</span> <input type="password" id="password" name="password"></label>
+                </div>
+                <input type="submit" value="SELESAI">   
+                <a href="profile.html">Kembali ke laman tabel?</a>
+            </form>
+            <div class="picture">
+                <img class="picture" src="img/sampleprofileimage.jpg" alt="">
+                <form id="img">
+                    <!-- <label for="image">Foto buku:</label> <br> -->
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <button onclick="document.getElementById('image').click()">Tambah foto buku</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
