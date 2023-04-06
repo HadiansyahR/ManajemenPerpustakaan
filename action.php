@@ -8,7 +8,7 @@ $telp = ($_POST['telephone']);
 
 if (!empty($_FILES['photo']['tmp_name'])) {
     $photo = $_FILES['photo']['tmp_name'];
-    $photo_name = mt_rand() . str_replace(' ', '', $username) . ".jpg";
+    $photo_name = rand(0, 9999) . str_replace(' ', '', $username) . ".jpg";
     move_uploaded_file($photo, "img/profil/" . $photo_name);
 } else {
     $photo_name =  'member.jpg';

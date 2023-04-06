@@ -8,7 +8,7 @@ $tahunTerbit = $_POST['tahun_terbit'];
 
 if (!empty($_FILES['photo']['tmp_name'])) {
     $cover = $_FILES['photo']['tmp_name'];
-    $coverBuku = mt_rand() . str_replace(' ', '', $judul) . ".jpg";
+    $coverBuku = rand(0, 9999) . str_replace(' ', '', $judul) . ".jpg";
     move_uploaded_file($cover, "img/book/" . $coverBuku);
 } else {
     $coverBuku =  'default.jpg';
