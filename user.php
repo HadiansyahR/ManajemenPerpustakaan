@@ -65,7 +65,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             <a href="./profil.php"><img src="Assets/icon/user.png" class="user" width="70px" alt="" /></a>
           </li>
           <li>
-            <a href="./user.php?logout=1"><img src="Assets/icon/off.png" width="70px" alt="" /></a>
+            <a href="./user.php?logout=1" onclick="return confirm('Anda yakin ingin Logout?')"><img src="Assets/icon/off.png" width="70px" alt="" /></a>
           </li>
         </ul>
       </div>

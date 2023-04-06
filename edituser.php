@@ -17,7 +17,7 @@ session_start();
     <div class="wrapper">
         <header>
             <a class="logo" href="./user.php"><img src="icon/22.png" alt=""></a>
-            <a class="atr" href="./user.php?logout=1"><img src="icon/logoff.png" alt=""></a>
+            <a class="atr" href="./user.php?logout=1" onclick="return confirm('Anda yakin ingin Logout?')"><img src="icon/logoff.png" alt=""></a>
         </header>
         <main>
             <form id="up" method="post" enctype="multipart/form-data" action="actionUpdate.php?id=<?= $_SESSION['user_id'] ?>">

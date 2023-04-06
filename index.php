@@ -62,7 +62,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
   <div class="side-bar">
     <a href="./dataprofil.php"><img class="side" id="profile" width="50" src="Assets/profile.png" alt="Profil" /></a>
     <a href="./index.php"><img class="side" width="50" src="Assets/book.png" alt="Book" /></a>
-    <a href="./index.php?logout=1"><img class="side" id="logout" width="50" src="Assets/exit.png" alt="Exit" /></a>
+    <a href="./index.php?logout=1" onclick="return confirm('Anda yakin ingin Logout?')"><img class="side" id="logout" width="50" src="Assets/exit.png" alt="Exit" /></a>
   </div>
 
   <!--  END SIDE BAR -->
@@ -84,11 +84,11 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
       <a href="./PageTambahBuku.php"><button class="tambah">
           + Tambah Buku
         </button></a>
-        <a href="daftarPeminjam.html"><button class="lihat">
+      <a href="dataPeminjam.php"><button class="lihat">
           Daftar Peminjam
         </button></a>
     </div>
-  
+
     <table>
       <thead>
         <tr>
