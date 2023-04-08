@@ -2,7 +2,7 @@
 session_start();
 include('server/connection.php');
 
-$book_id = $_SESSION['book_id'];
+$book_id = $_GET['book_id'];
 $user_id = $_SESSION['user_id'];
 $borrow_date = date('Y-m-d');
 

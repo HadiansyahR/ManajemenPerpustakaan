@@ -108,9 +108,7 @@ if ($_SESSION['user_status'] == 'Admin') {
     </h1>
 
     <div class="Book-content row">
-      <?php while ($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['book_id'] = $row['id_buku'];
-      ?>
+      <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="card col-lg-4">
           <img src="img/book/<?php echo $row['cover_buku'] ?>" alt="Cover buku" style="width:75% ;" />
           <div class="container">
@@ -123,7 +121,7 @@ if ($_SESSION['user_status'] == 'Admin') {
             <!-- <form method="post" action="borrowBook.php"> -->
             <!-- <input type="button" name="submit" class="btn-pinjam" value="Pinjam" role="button" onclick="return confirm('Ingin meminjam buku <?= $row['judul_buku'] ?> ?')"> -->
             <!-- </form> -->
-            <a href="borrowBook.php" role="button" onclick="return confirm('Ingin meminjam buku <?= $row['judul_buku'] ?> ?')" class="btn-pinjam">Pinjam</a>
+            <a href="borrowBook.php?book_id=<?= $row['id_buku'] ?>" role="button" onclick="return confirm('Ingin meminjam buku <?= $row['judul_buku'] ?> ?')" class="btn-pinjam">Pinjam</a>
           </div>
         </div>
       <?php } ?>
