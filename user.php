@@ -110,11 +110,11 @@ if ($_SESSION['user_status'] == 'Admin') {
     <div class="Book-content row">
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <div class="card col-lg-4">
-          <img src="img/book/<?php echo $row['cover_buku'] ?>" alt="Cover buku" style="width:75% ;" />
+          <img src="img/book/<?= $row['cover_buku'] ?>" alt="Cover buku" style="width:75% ;" />
           <div class="container">
-            <h5><?php echo $row['judul_buku'] ?></h5>
+            <h5><?= $row['judul_buku'] ?></h5>
             <p>By
-              <?php echo $row['penulis_buku'] ?>
+              <?= $row['penulis_buku'] ?>
             </p>
           </div>
           <div class="tombol-pinjam">

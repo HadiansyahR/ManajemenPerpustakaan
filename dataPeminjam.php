@@ -100,13 +100,13 @@ if (isset($_GET['logout'])) {
           $newDate = strftime("%A, %d %B %Y", $date);
         ?>
           <tr class="col-2">
-            <td><?php echo $row['id_pinjam'] ?></td>
-            <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['judul_buku'] ?></td>
-            <td><?php echo $newDate ?></td>
+            <td><?= $row['id_pinjam'] ?></td>
+            <td><?= $row['name'] ?></td>
+            <td><?= $row['judul_buku'] ?></td>
+            <td><?= $newDate ?></td>
             <td>
               <div class="act-delete">
-                <a href="DeleteBorrow.php?id=<?= $row['id_pinjam']; ?>" role="button" onclick="return confirm('Data <?php echo $row['name'] ?> meminjam buku <?php echo $row['judul_buku'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
+                <a href="DeleteBorrow.php?id=<?= $row['id_pinjam']; ?>" role="button" onclick="return confirm('Data <?= $row['name'] ?> meminjam buku <?= $row['judul_buku'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
               </div>
             </td>
           </tr>

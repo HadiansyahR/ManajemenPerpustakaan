@@ -90,10 +90,10 @@ if (isset($_GET['logout'])) {
       <tbody>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <tr class="col-2">
-            <td><?php echo $row['id'] ?></td>
-            <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['email'] ?></td>
-            <td><?php echo $row['telephone'] ?></td>
+            <td><?= $row['id'] ?></td>
+            <td><?= $row['name'] ?></td>
+            <td><?= $row['email'] ?></td>
+            <td><?= $row['telephone'] ?></td>
             <td>
               <div class="act-delete">
                 <a href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
