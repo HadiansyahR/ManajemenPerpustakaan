@@ -43,12 +43,12 @@ if ($_SESSION['user_status'] == 'User') {
         <main>
             <form id="up" method="post" action="actionUpdateBuku.php?id_buku=<?= $id ?>" enctype="multipart/form-data">
                 <h1>UPDATE <span>BUKU</span></h1>
-                <h4 class="updateId">ID BUKU: <?php echo $_SESSION['id_buku']; ?> </h4>
+                <h4 class="updateId">ID BUKU: <?= $_SESSION['id_buku']; ?> </h4>
                 <div class="update">
-                    <label for="judul"><span>Judul buku:</span> <input type="text" id="judul" name="judul_buku" value="<?php echo $_SESSION['judul_buku'] ?>"></label>
-                    <label for="penulis"><span>Penulis:</span> <input type="text" id="penulis" name="penulis_buku" value="<?php echo $_SESSION['penulis_buku'] ?>"></label>
-                    <label for="penerbit"><span>Penerbit:</span> <input type="text" id="penerbit" name="penerbit_buku" value="<?php echo $_SESSION['penerbit_buku'] ?>"></label>
-                    <label for="tahun"><span>Tahun Terbit:</span> <input type="text" id="tahun" name="tahun_terbit" value="<?php echo $_SESSION['tahun_terbit'] ?>"></label>
+                    <label for="judul"><span>Judul buku:</span> <input type="text" id="judul" name="judul_buku" value="<?= $_SESSION['judul_buku'] ?>"></label>
+                    <label for="penulis"><span>Penulis:</span> <input type="text" id="penulis" name="penulis_buku" value="<?= $_SESSION['penulis_buku'] ?>"></label>
+                    <label for="penerbit"><span>Penerbit:</span> <input type="text" id="penerbit" name="penerbit_buku" value="<?= $_SESSION['penerbit_buku'] ?>"></label>
+                    <label for="tahun"><span>Tahun Terbit:</span> <input type="text" id="tahun" name="tahun_terbit" value="<?= $_SESSION['tahun_terbit'] ?>"></label>
                     <label for="cover"><span>Cover Buku:</span> <input type="file" id="cover" name="cover_buku"></label>
                 </div>
                 <input type="submit" value="UPDATE">

@@ -100,11 +100,11 @@ if (isset($_GET['logout'])) {
       <tbody>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
           <tr class="col-2">
-            <td><?php echo $row['id_buku'] ?></td>
-            <td><?php echo $row['judul_buku'] ?></td>
-            <td><?php echo $row['penulis_buku'] ?></td>
-            <td><?php echo $row['penerbit_buku'] ?></td>
-            <td><?php echo $row['tahun_terbit'] ?></td>
+            <td><?= $row['id_buku'] ?></td>
+            <td><?= $row['judul_buku'] ?></td>
+            <td><?= $row['penulis_buku'] ?></td>
+            <td><?= $row['penerbit_buku'] ?></td>
+            <td><?= $row['tahun_terbit'] ?></td>
             <td>
               <div class="act-delete">
                 <a href="DeleteBuku.php?id_buku=<?= $row['id_buku']; ?>" role="button" onclick="return confirm('Buku <?= $row['judul_buku'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>

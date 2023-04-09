@@ -42,20 +42,20 @@ if ($_SESSION['user_status'] == 'Admin') {
         </header>
         <main>
             <div class="data">
-                <img class="picture" src="img/profil/<?php echo $row['photo'] ?>" alt="">
+                <img class="picture" src="img/profil/<?= $row['photo'] ?>" alt="">
                 <section class="user">
-                    <p class="username"><?php echo $row['name'] ?></p>
+                    <p class="username"><?= $row['name'] ?></p>
                     <div class="email">
                         <p><span class="usr-email">Email</span></p>
-                        <p class="star"><?php echo $row['email'] ?></p>
+                        <p class="star"><?= $row['email'] ?></p>
                     </div>
                     <div class="telp">
                         <p><span class="usr-email">No. Telepon</span></p>
-                        <p class="star"><?php echo $row['telephone'] ?></p>
+                        <p class="star"><?= $row['telephone'] ?></p>
                     </div>
                     <div class="status">
                         <p><span class="usr-sta">Status</span></p>
-                        <p class="star"><?php echo $row['status'] ?></p>
+                        <p class="star"><?= $row['status'] ?></p>
                     </div>
                 </section>
                 <section class="update">
