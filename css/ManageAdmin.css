@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 
 body {
     background: #ece6ee;
@@ -95,7 +98,7 @@ h1 {
     font-weight: 100;
 }
 
-button{
+.cari{
     background: transparent;
     border: none;
     cursor: pointer;
@@ -157,7 +160,7 @@ a{
 
 /* CONTENT-USER END */
 
-/* CONETENT-BUKU */
+/* CONTENT-BUKU */
 .act-update{
     background-color: #fff;
     border-color: blue;
@@ -174,4 +177,32 @@ a{
     color: #5907ef;
     width: 20%;  
 }
+
+.act-buku{
+    margin-left: 75%;
+}
+.tambah {
+    margin-top: 25px;
+    margin-left: 10px;
+    background-color: rgb(58, 150, 58);
+    color: white;
+    border-style: hidden;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.lihat{
+    margin-top: 25px;
+    margin-left: 10px;
+    border-color: #5907ef;
+    background-color: white;
+    color: #5907ef;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;  
+}
+
 /* CONETENT-BUKU END*/

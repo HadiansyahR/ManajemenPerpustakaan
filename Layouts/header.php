@@ -22,11 +22,11 @@
             <li>
                 <a href="<?php echo $_POST['buku']; ?>"><img class="side" width="40px" src="Assets/book.png" alt="Book"></a>
             </li>
-            <a class="logout" href="index.php?logout=1"><img width="40px" src="Assets/exit.png" alt="Logout!"></a>
+            <a class="logout" href="<?php echo $_POST['buku']; ?>?logout=1"><img width="40px" src="Assets/exit.png" alt="Logout!"></a>
         </ul>
     </div>
     <header>
         <img width="100px" src="Assets/Logo.png" alt="Rumah Kertas">
     </header>
     <div class="container">
-<!--          -->
+        <!--          -->
