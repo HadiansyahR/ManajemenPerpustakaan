@@ -30,9 +30,10 @@ if (isset($_GET['logout'])) {
     exit;
   }
 }
-
-$name = $row['judul_buku'];
-$photo_name = str_replace(' ', '_', $name) . ".jpg";
+if ($_SESSION['user_status'] == 'Admin') {
+  header('location: index.php');
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +66,7 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             <a href="./profil.php"><img src="Assets/icon/user.png" class="user" width="70px" alt="" /></a>
           </li>
           <li>
-            <a href="./user.php?logout=1"><img src="Assets/icon/off.png" width="70px" alt="" /></a>
+            <a href="./user.php?logout=1" onclick="return confirm('Anda yakin ingin Logout?')"><img src="Assets/icon/off.png" width="70px" alt="" /></a>
           </li>
         </ul>
       </div>
@@ -117,7 +118,10 @@ $photo_name = str_replace(' ', '_', $name) . ".jpg";
             </p>
           </div>
           <div class="tombol-pinjam">
-            <input type="button" class="btn-pinjam" value="Pinjam">
+            <!-- <form method="post" action="borrowBook.php"> -->
+            <!-- <input type="button" name="submit" class="btn-pinjam" value="Pinjam" role="button" onclick="return confirm('Ingin meminjam buku <?= $row['judul_buku'] ?> ?')"> -->
+            <!-- </form> -->
+            <a href="borrowBook.php?book_id=<?= $row['id_buku'] ?>" role="button" onclick="return confirm('Ingin meminjam buku <?= $row['judul_buku'] ?> ?')" class="btn-pinjam">Pinjam</a>
           </div>
         </div>
       <?php } ?>

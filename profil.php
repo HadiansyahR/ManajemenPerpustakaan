@@ -17,6 +17,10 @@ if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');
     exit;
 }
+if ($_SESSION['user_status'] == 'Admin') {
+    header('location: dataprofil.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +38,7 @@ if (!isset($_SESSION['logged_in'])) {
     <div class="wrapper">
         <header>
             <a class="logo" href="./user.php"><img src="icon/22.png" alt=""></a>
-            <a class="atr" href="./user.php?logout=1"><img src="icon/logoff.png" alt=""></a>
+            <a class="atr" href="./user.php?logout=1" onclick="return confirm('Anda yakin ingin Logout?')"><img src="icon/logoff.png" alt=""></a>
         </header>
         <main>
             <div class="data">

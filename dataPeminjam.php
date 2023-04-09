@@ -1,25 +1,31 @@
 <?php
 session_start();
 include('server/connection.php');
-
-$sql = "Select * from akun WHERE status = 'User'";
+$sql = "SELECT meminjam.id_pinjam, akun.name, buku.judul_buku, meminjam.tanggal_pinjam
+FROM meminjam
+INNER JOIN akun ON meminjam.id = akun.id
+INNER JOIN buku ON meminjam.id_buku = buku.id_buku";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   $row = mysqli_fetch_assoc($result);
 }
+
 if ($_SESSION['user_status'] == 'User') {
   header('location: profil.php');
   exit;
 }
 if (isset($_POST['cari'])) {
   $keyword = $_POST['keyword'];
-  if (strlen($keyword) > 0) {
-    $q = "Select * from akun WHERE name LIKE '%$keyword%' && status = 'User' ";
-  } else {
-    $q = "Select * from akun WHERE status = 'User'";
-  }
+  $q = "SELECT meminjam.id_pinjam, akun.name, buku.judul_buku, meminjam.tanggal_pinjam
+    FROM meminjam
+    INNER JOIN akun ON meminjam.id = akun.id
+    INNER JOIN buku ON meminjam.id_buku = buku.id_buku
+    WHERE akun.name LIKE '%$keyword%' OR buku.judul_buku LIKE '%$keyword%' ";
 } else {
-  $q = "Select * from akun WHERE status = 'User'";
+  $q = "SELECT meminjam.id_pinjam, akun.name, buku.judul_buku, meminjam.tanggal_pinjam
+  FROM meminjam
+  INNER JOIN akun ON meminjam.id = akun.id
+  INNER JOIN buku ON meminjam.id_buku = buku.id_buku";
 }
 $result = mysqli_query($conn, $q);
 
@@ -45,7 +51,7 @@ if (isset($_GET['logout'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/ManageAdmin.css" />
   <link rel="icon" href="Assets/logo.png" />
-  <title>Mangement Admin-User</title>
+  <title>Daftar Peminjaman Buku</title>
 </head>
 
 <body>
@@ -66,11 +72,11 @@ if (isset($_GET['logout'])) {
 
   <!--  CONTENT-USER    -->
   <div class="Container">
-    <h1>KELOLA <font color="#5907EF"> USER</font>
+    <h1>Daftar <font color="#5907EF"> Peminjaman</font>
     </h1>
     <div class="form-search">
       <form class="search" method="post">
-        <input class="search-box" type="text" name="keyword" placeholder="Cari Nama User" />
+        <input class="search-box" type="text" name="keyword" placeholder="Cari User atau Judul Buku" />
         <button class="cari" name="cari">
           <img src="Assets/icon/3917132.png" width="25px" alt="" />
         </button>
@@ -80,23 +86,27 @@ if (isset($_GET['logout'])) {
     <table>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nama</th>
-          <th>Email</th>
-          <th>Telephone</th>
+          <th>ID Pinjam</th>
+          <th>User Name</th>
+          <th>Judul Buku</th>
+          <th>Tanggal Pinjam</th>
           <th class="th-hapus">HAPUS</th>
         </tr>
       </thead>
       <tbody>
-        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+        <?php while ($row = mysqli_fetch_assoc($result)) {
+          setlocale(LC_TIME, 'id_ID');
+          $date = strtotime($row['tanggal_pinjam']);
+          $newDate = strftime("%A, %d %B %Y", $date);
+        ?>
           <tr class="col-2">
-            <td><?php echo $row['id'] ?></td>
+            <td><?php echo $row['id_pinjam'] ?></td>
             <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['email'] ?></td>
-            <td><?php echo $row['telephone'] ?></td>
+            <td><?php echo $row['judul_buku'] ?></td>
+            <td><?php echo $newDate ?></td>
             <td>
               <div class="act-delete">
-                <a href="DeleteUser.php?id=<?= $row['id']; ?>" role="button" onclick="return confirm('Data dari <?= $row['name'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
+                <a href="DeleteBorrow.php?id=<?= $row['id_pinjam']; ?>" role="button" onclick="return confirm('Data <?php echo $row['name'] ?> meminjam buku <?php echo $row['judul_buku'] ?> akan dihapus?')"><img src="Assets/icon/hapus.png" class="hapus" width="40px" alt="" /></a>
               </div>
             </td>
           </tr>

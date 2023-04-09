@@ -21,7 +21,7 @@ if (!empty($_FILES['photo']['tmp_name'])) {
     $photo_name =  $_SESSION['user_photo'];
 }
 
-$query = "UPDATE akun SET email = '$email', name = '$name', telephone = '$telp', password = '$password' , photo = '$photo_name' WHERE id = '$id'";
+$query = "UPDATE akun SET email = '$email', name = '$name', telephone = '$telp' , photo = '$photo_name' WHERE id = '$id'";
 mysqli_query($conn, $query);
 header("location:profil.php");
 die();
