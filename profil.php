@@ -29,7 +29,8 @@ if ($_SESSION['user_status'] == 'Admin') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Profile Anda</title>
+    <link rel="icon" href="Assets/logo.png" type="image/png" />
     <link rel="stylesheet" href="css/styleprofile.css">
     <link rel="shortcut icon" href="./icon/white2.png" type="image/x-icon">
 </head>
@@ -59,7 +60,7 @@ if ($_SESSION['user_status'] == 'Admin') {
                     </div>
                 </section>
                 <section class="update">
-                    <h1>Update profile Anda?</h1>
+                    <h1>Update Profile Anda?</h1>
                     <p>Mari lengkapi identitas Anda</p>
                     <br>
                     <a class="button btn btn-success mr-10" href="edituser.php" role="button">EDIT</a>

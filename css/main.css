@@ -12,6 +12,12 @@ body{
     src: url(../fonts/BebasNeue-Regular.ttf);
 }
 
+.font{
+    font-family: 'Bebasneue';
+    letter-spacing: 3px;
+    font-size: 65px;
+    
+}
 .bebas{
     font-family: 'Bebasneue';
     letter-spacing: 0.27em;
@@ -61,6 +67,7 @@ ul{
 }
 
 a{
+    text-decoration: none;
     color: #343434;
     padding: .75em 2em;
     display: block;
@@ -171,7 +178,6 @@ svg.path{
 
     a:hover{
         background: none;
-        text-decoration: underline;
     }
 
     .hero-img {

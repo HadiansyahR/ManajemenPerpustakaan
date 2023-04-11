@@ -18,6 +18,7 @@ if ($_SESSION['user_status'] == 'User') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/editdata.css">
     <title>Tambah Buku</title>
+    <link rel="icon" href="Assets/logo.png" type="image/png" />
     <link rel="shortcut icon" href="./icon/tabicon.png" type="image/x-icon">
 </head>
 

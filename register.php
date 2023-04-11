@@ -20,6 +20,7 @@ if (isset($_SESSION['logged_in'])) {
     <title>Register</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/Log-regist.css">
+    <link rel="icon" href="Assets/logo.png" type="image/png" />
 </head>
 
 

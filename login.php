@@ -69,6 +69,7 @@ if (isset($_POST['login_btn'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/Log-regist.css">
+    <link rel="icon" href="Assets/logo.png" type="image/png" />
     <title>Login</title>
 </head>
 

@@ -22,7 +22,7 @@ if (isset($_POST['cari'])) {
 $result = mysqli_query($conn, $q);
 
 if (!isset($_SESSION['logged_in'])) {
-  header('location: login.php');
+  header('location: landingpage.php');
   exit;
 }
 
@@ -44,8 +44,8 @@ if (isset($_GET['logout'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/ManageAdmin.css">
   <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-  <link rel="icon" href="Assets/logo.png" />
-  <title>Management Admin-Book</title>
+  <link rel="icon" href="Assets/logo.png" type="image/png" />
+  <title>Kelola Buku</title>
 </head>
 
 <body>

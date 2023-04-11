@@ -44,8 +44,8 @@ if (isset($_GET['logout'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/ManageAdmin.css" />
-  <link rel="icon" href="Assets/logo.png" />
-  <title>Mangement Admin-User</title>
+  <link rel="icon" href="Assets/logo.png" type="image/png" />
+  <title>Kelola User</title>
 </head>
 
 <body>
