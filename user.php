@@ -18,7 +18,7 @@ if (isset($_POST['cari'])) {
 $result = mysqli_query($conn, $q);
 
 if (!isset($_SESSION['logged_in'])) {
-  header('location: login.php');
+  header('location: landingpage.php');
   exit;
 }
 
