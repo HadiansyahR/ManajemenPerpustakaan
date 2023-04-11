@@ -12,16 +12,7 @@ body{
     src: url(../fonts/BebasNeue-Regular.ttf);
 }
 
-.font{
-    font-family: 'Bebasneue';
-    letter-spacing: 3px;
-    font-size: 65px;
-    
-}
-.bebas{
-    font-family: 'Bebasneue';
-    letter-spacing: 0.27em;
-}
+
 
 a{
     text-decoration: none;
@@ -214,7 +205,7 @@ svg.path{
     svg.down-arrow {    
         stroke: #343434;
         width: 12px;
-        padding-bottom: 15em;
+        padding-bottom: 10em;
     }
 
 
